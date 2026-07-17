@@ -127,16 +127,122 @@ labeled one is not.**
   resolves it true or refuted.
 
 ## What this project is
-The strategy room for **Dossier [NNN / short-name]: [ONE-LINE TOPIC]**.
+The strategy room for **Dossier QC003 — Where should AI be pointed to most
+accelerate fault-tolerant quantum computing? An exploratory, AI-led scouting
+dossier that finds, grades, and kills candidate breakthrough arcs reachable with
+simulation and reasoning alone.**
 Connected repo: this synced repository. The dossier's two reading
 surfaces (the self-explaining front door and the audit trail), its manuscript, its
 verification script, and its claim ledger all live here.
 
 ## Standing context (edit per dossier)
-- [List this dossier's open claims by ledger id.]
-- [List current open red-team findings.]
-- [Note anything a fresh session must know: the topic's sensitivities, the
-  key prior work, the boldest claims and exactly how they're labeled.]
+- Open claims: None formally entered yet — to be built during Scouting Cycle 1
+  recon. Anticipated structure: the ESTABLISHED bucket is the verified 2026
+  landscape (qLDPC overhead collapse; QuEra's 2:1 physical:logical qLDPC MEMORY
+  demo with its own compute caveat; routing codes buildable cross-platform,
+  arXiv:2606.25330; BP-OSD's cubic-worst-case OSD step and the open real-time
+  decoding problem; AlphaQubit accuracy-leading but too slow for live
+  correction) — asserted with citations and search dates. The central
+  OPEN-UNVERIFIED claims are the scouted arcs' theses, each posted with the
+  dated, falsifiable resolution mechanism that would settle it. Prior-lineage
+  results are CITE-grade: dossier-QC-Accelerate-002, concluded at Chapter 5,
+  DOI 10.5281/zenodo.21360979 (concept 10.5281/zenodo.21270186).
+- Open red-team findings: None yet — adversarial pass comes after the first
+  draft of Chapter 1.
+- Anything a fresh session must know:
+  - MISSION: exploratory. The AI leads arc-scouting and is expected to operate
+    WITHOUT being babied. It generates candidate arcs, verifies prior-art
+    absence by search, scores them, and KILLS mundane ones autonomously —
+    one-line kills recorded in an append-only scouting ledger, no permission
+    asked per kill. Only breakthrough-shaped survivors are surfaced for author
+    decision.
+  - THE FIVE AXES, scored per arc in the ledger: (1) breakthrough-shaped — a win
+    changes what others DO, not a number; (2) edge-fit — computation/reasoning-
+    heavy, no lab, exploits the two-agent loop and the -002 machinery; (3)
+    underpriced-why — a NAMED reason the crowd is absent (falls between fields,
+    career-unrewarded, discipline-scarce), verified by search; "nobody thought of
+    it" is not a reason; (4) mechanically verifiable — a stranger can recheck by
+    rerunning committed artifacts; (5) pull — AUTHOR-ONLY axis; ask, never infer.
+  - THE STANDING BAR: if an arc's honest ceiling is coefficient-polishing, it
+    dies in the ledger. The predecessor dossier was concluded by the author over
+    exactly this; QC003 does not relitigate it per-arc.
+  - THE NO-LAB CONSTRAINT IS THE LANE, NOT A LIMITATION: the grading instruments
+    are classical simulations. A no-lab researcher with a verified AI loop can
+    (a) build frozen, gated referees calibrated to published hardware noise — the
+    field's missing infrastructure; (b) produce certified measurements others
+    must cite; (c) design and verify in silico with honest grading the designers
+    rarely pay for; (d) register dated falsifiable forecasts; (e) publish
+    negative results and kills at full grade. This is the lane the field is worst
+    at.
+  - PUBLISHING DOCTRINE (author's volume goal, kept, with the effectiveness bar):
+    the publishable unit is the SCOUTED CLAIM — an idea PLUS at least one of (i) a
+    derivation, (ii) a simulation/measurement with committed artifacts, or (iii) a
+    pre-registered, dated, falsifiable forecast with a stated resolution
+    mechanism. Bare idea lists earn nothing: anyone can generate ideas with an LLM
+    in 2026, and unexecuted speculation would spend down the lineage's
+    credibility. Priority attaches to demonstrated or falsifiably-registered
+    claims. Volume comes from the loop's throughput, never from lowering the bar.
+    Batches seal continuously as non-DOI OTS-anchored chapters; DOI minting is
+    reserved for chapters the author judges citable. Chapter 1 seals NON-DOI.
+  - LINEAGE AND WHAT IT PROVED: -002 certified that an automated search loop's
+    code beats the matched-efficiency human benchmark 4.6x per-logical at a
+    hardware-calibrated circuit-level operating point. Its transferable lessons:
+    cheap proxies for logical performance fail mechanistically; honest grading
+    costs ~100x the field-standard budget; six certified operating-point truths
+    exist as a calibration set; the rep-13 floor (2.31e-8) stands as a challenge;
+    quantum trapping sets surface at circuit level; the decoder-created failure
+    share is a code-decoder INTERACTION spanning 8.5-63%. Three forward bets
+    remain live and score at their signposts (2026-08-15, 2026-08-31,
+    2026-12-31) — that ledger is the honest priority-claim instrument QC003
+    industrializes.
+  - THE LANDSCAPE, VERIFIED 2026-07-14 (re-verify on use; five layers): L1 codes
+    — solved and industrializing (crowded, done). L2 memory-to-compute — THE
+    structural gap: the field stores logical qubits cheaply and cannot yet
+    compute on them cheaply (QuEra's own caveat), but gate THEORY is
+    elite-crowded (code surgery, universal adapters PRX Quantum 2026, gauging
+    logical operators Nature Physics 2026, transversal non-Clifford, no-go
+    theorems arXiv:2602.13395) — bad edge-fit for a solo loop. L3 real-time
+    decoding — open but industrially swarmed (IBM Relay-BP, NVIDIA cudaq-qec,
+    FPGA decoders, AlphaQubit); note Relay-BP damps the symmetric trapping sets
+    -002 dissected, so our niche knowledge is load-bearing but out-engineering
+    IBM is not the lane. L4 honest measurement — VERIFIED THIN AND THE LANE: the
+    gadget zoo (surgery schemes, adapters, dimension jumps, shuttling
+    choreographies, hybrid NA-memory/SC-compute architectures with 752x
+    cost-MODEL claims, arXiv:2601.10144) is compared on asymptotics and toy
+    analyses; no certified circuit-level operating-point leaderboard of LOGICAL
+    OPERATIONS on high-rate codes exists, because referee work is
+    career-unrewarded and falls between theory and hardware. L5 AI-for-QC — the
+    thesis is live and under-verified. Platform verdict: neutral atoms lead
+    structurally (connectivity via shuttling; 2:1 memory demonstrated; compute
+    gap wide open), with cross-platform code families hedging.
+  - SEED ARC PORTFOLIO (the AI extends and re-scores; Cycle 1 target 8-12 arcs):
+    A. THE LOGIC REFEREE (flagship) — build the frozen circuit-level referee for
+    logical operations on high-rate codes under neutral-atom noise (shuttling,
+    loss, 2:1-era codes), produce the first certified gate-level truths, then arm
+    the loop on the gadget/schedule space (NOT the code space — that war is over);
+    ceiling: "AI discovers a measurably better way to COMPUTE on qLDPC codes."
+    B. Trapping-set-aware decoder co-design — high edge-fit, incumbent-crowded,
+    likely component-grade ceiling. C. Hybrid-architecture honest grading —
+    re-grade the cost-model claims by measurement-grade simulation. D. The
+    forecast engine — industrialize the forward-bet ledger; breakthrough as a
+    BODY of work. E. WILDCARDS LANE — a standing requirement that every scouting
+    cycle include at least one arc from OUTSIDE the QEC frame, so exploration
+    never collapses into the predecessor's groove.
+  - AUTHOR AUTHORITY RETAINED: forecast percentages; author-position statements;
+    AI-use disclosure wording (author's own words); scope exclusions
+    (weapons-adjacent comparisons excluded; macro-economic topics out of scope);
+    publication and DOI decisions; the Pull axis.
+  - VERIFY-DON'T-RECALL: web-search before asserting any recent claim; enforce
+    the CITE/REPORTED split within single sentences (e.g., AlphaQubit's
+    Nature-published accuracy is CITE; 2025-26 "productionization" claims come
+    from low-quality sources and are REPORTED-only). Every label true, both
+    directions: never soft-pedal a verified fact into a hedge, never assert a
+    scouted thesis as settled.
+  - TEMPLATE LESSONS PRE-APPLIED FROM -002's ERROR LEDGER: verify the jq boolean
+    fix (`.doi_archived // ""` swallowing false); and DEPLOY.md must carry the
+    rule "reset provenance.version_doi to '' before each release" so a freeze
+    never seals a stale DOI (this bit -002 at its v5.0.0 seal and required an
+    erratum across the frozen snapshot).
 
 ## Geography (three layers)
 1. **GitHub = the truth.** The synced repo is the canonical state.
