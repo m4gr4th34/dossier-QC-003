@@ -142,7 +142,7 @@ verification script, and its claim ledger all live here.
   demo with its own compute caveat; routing codes buildable cross-platform,
   arXiv:2606.25330; BP-OSD's cubic-worst-case OSD step and the open real-time
   decoding problem; AlphaQubit accuracy-leading but too slow for live
-  correction) — asserted with citations and search dates. The central
+  correction (superseded for topological codes by AlphaQubit 2, arXiv:2512.07737; qLDPC real-time gap stands — see ledger COR-2)) — asserted with citations and search dates. The central
   OPEN-UNVERIFIED claims are the scouted arcs' theses, each posted with the
   dated, falsifiable resolution mechanism that would settle it. Prior-lineage
   results are CITE-grade: dossier-QC-Accelerate-002, concluded at Chapter 5,
@@ -213,7 +213,7 @@ verification script, and its claim ledger all live here.
     OPERATIONS on high-rate codes exists, because referee work is
     career-unrewarded and falls between theory and hardware. L5 AI-for-QC — the
     thesis is live and under-verified. Platform verdict: neutral atoms lead
-    structurally (connectivity via shuttling; 2:1 memory demonstrated; compute
+    structurally (connectivity via shuttling; 2:1 memory simulated (not hardware-demonstrated; see ledger COR-1); compute
     gap wide open), with cross-platform code families hedging.
   - SEED ARC PORTFOLIO (the AI extends and re-scores; Cycle 1 target 8-12 arcs):
     A. THE LOGIC REFEREE (flagship) — build the frozen circuit-level referee for
