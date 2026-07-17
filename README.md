@@ -375,7 +375,7 @@ for TAG in $TAGS; do
   case "$CONCEPT_DOI" in TODO*|"") CONCEPT_DOI="" ;; esac                   # sentinel/absent -> empty
   VERSION_DOI="$(git show "$TAG":provenance.json 2>/dev/null | jq -r '.version_doi // ""' 2>/dev/null || echo "")"
   case "$VERSION_DOI" in TODO*|"") VERSION_DOI="" ;; esac                   # from that tag's own sealed provenance
-  DOI_ARCHIVED="$(git show "$TAG":provenance.json 2>/dev/null | jq -r '.doi_archived // ""' 2>/dev/null || echo "")"   # "false" iff that chapter declared no DOI
+  DOI_ARCHIVED="$(git show "$TAG":provenance.json 2>/dev/null | jq -r 'if .doi_archived == false then "false" else "" end' 2>/dev/null || echo "")"   # "false" iff that chapter declared no DOI (test ==false explicitly: jq's `//` treats the boolean false like null and would drop the flag)
 
   python3 verification/freeze_chapter.py \
     --tag "$TAG" --title "$TITLE" --summary "$SUMMARY" \
