@@ -1,19 +1,24 @@
 An Open Dossier · **QC-003**
 
-# Dossier QC-003 (working title — topic to be set)
+# Dossier QC-003 — The Race to the First Fault-Tolerant Quantum Computer
 
 *Irfan Ali-Khan — Independent Researcher*
 
-**Working shell.** Dossier QC-003 has just been spawned from the Open Dossier template; its topic, abstract, and avenue landscape will be set in the research phase that follows. Until then, the cards in the landscape below are template placeholders — but every one already wears an honest status label, which is the whole point of the format: a claim's label always tells you exactly how finished it is. **Don't trust this paper — run it.**
+**Chapter 1 — reconnaissance. Working draft.** This is the opening chapter of Dossier QC-003, which asks one question: which physical platform reaches fault-tolerant, useful-scale quantum computing first, and what exactly stands in each one's way? The chapter sets the frame — the state of the race, why the race cannot currently be scored, and the drill plan for the six platform chapters to come. It is a **working draft**: it seals to the permanent record, without a DOI, only after author review and edition integration. Every claim below wears an honest status label — a verified fact, an interested party's report, an open question, or a dated bet — because that label is the whole point of the format: it always tells you exactly how finished the claim is. **Don't trust this paper — run it.**
 
 ## Avenues
 
 | Avenue | Thesis | Status | Forecast | Sources |
 |---|---|---|---|---|
-| PLACEHOLDER avenue A | One-line thesis — what this avenue is and why it's in play. | ESTABLISHED | — | REF1, REF2 |
-| PLACEHOLDER avenue B | One-line thesis for an avenue with a central open question. | OPEN-UNVERIFIED | — | REF3 |
-| PLACEHOLDER avenue C | One-line thesis for an avenue you're making a forward bet on. | FORECAST | ~35% by 2030 | REF4 |
-| PLACEHOLDER avenue D | One-line thesis sourced only to an interested party / roadmap. | REPORTED | — | REF5 |
+| Neutral atoms | Rydberg-linked atoms in laser tweezers; logical-count leader and home of the 2:1 memory simulation. Binding constraint: atom loss — a lost atom is a missing bit, not a flipped one. | OPEN-UNVERIFIED | — | qmem, star |
+| Superconducting | Aluminium circuits at 15 mK; the most industrially mature platform. Binding constraint: wiring — control lines and the long-range couplings qLDPC codes need that a flat chip lacks. | OPEN-UNVERIFIED | — | relaybp |
+| Trapped ions | Charged atoms in EM traps holding the field's fidelity records, all-to-all connected. Binding constraint: speed and optical scale — gates thousands of times slower, each ion laser-addressed. | OPEN-UNVERIFIED | — | QCF-Ch4 |
+| Photonics | Light in silicon waveguides; native networking, no cryostat. Binding constraint: loss, worse — lost photons and probabilistic gates force massive redundancy below the loss threshold. | OPEN-UNVERIFIED | — | QCF-Ch5 |
+| Silicon spin | Single-electron spins on 300mm foundry lines; highest manufacturing ceiling. Binding constraint: no error-corrected logical qubit exists on the platform yet. | OPEN-UNVERIFIED | — | QCF-Ch6 |
+| Engineered qubits (topological + bosonic/cat) | Redesign the qubit to be intrinsically protected. Binding constraint: existence and extrapolation — the topological bet rests on a disputed physics claim, the cat bet on whether single-mode suppression scales. | OPEN-UNVERIFIED | — | QCF-Ch7 |
+| B1 — compute gap closes where storage won | By 2027-12-31, a public hardware demonstration (not simulation) of a two-qubit logical gate on a qLDPC code with encoding rate ≥ 1/4. | FORECAST | — | qmem, star |
+| B2 — platform of that first demonstration | Conditional on B1 resolving TRUE: the platform named in the resolving paper is neutral atoms. | FORECAST | — | qmem |
+| B3 — a vendor roadmap, scored not repeated | By 2026-12-31, IBM publicly reports Kookaburra operating as a qLDPC memory with a logical processing unit, per its stated 2026 roadmap. | FORECAST | — | relaybp |
 
 ## Consistency checks
 
@@ -25,64 +30,100 @@ Results from `verification/verify_numbers.py` — the same checks the in-page co
 
 **TOTAL: 3 checks · 3 pass · 0 fail** — All checks pass — the survey is internally consistent.
 
-**THE CHAPTER · NARRATIVE**
+**CHAPTER 1 · RECONNAISSANCE**
 
-## 01 THE FIELD, AND WHY SURVEY IT
+## 01 WHAT THIS DOSSIER IS
 
-Open with the field as a story: what is the question everyone in this area is circling, why is it hard, and why is a map of the whole landscape — rather than one more result — the useful thing to publish right now? Introduce your first tappable term (Replace this with a 3-5 sentence plain-language explanation of the term, written for a smart non-specialist. What is it, why does it matter to this field, and what is the one surprising thing about it?) here, and your first sourced claim [Journal 'YY].
+One question drives it: **which physical platform reaches fault-tolerant, useful-scale quantum computing first — and what, exactly, stands in each one's way?**
 
-*End the opening with the one line a reader should carry into the rest of the survey.*
+Two predecessor publications set the stage, and this dossier repeats neither. *Quantum Computing: A General Overview* — the same author's map dossier — surveys nine avenues at equal weight with deliberately loose odds; its own front page states its citation audit is pending, so every claim inherited from it enters here as REPORTED until re-verified. *Dossier-QC-Accelerate-002* [Zenodo '26] built the measurement discipline this dossier runs on: verify against primary sources on a stated date, label every claim exactly as strongly as its evidence allows, and record your own errors as findings.
 
-## 02 ESTABLISHED FOUNDATIONS
+The map told you the avenues exist. **This dossier drills.** Each platform gets a full chapter that takes its single binding engineering constraint to bedrock — the physical mechanism, the measured numbers, the scaling law, every candidate fix and its status — written so a high-school student can follow every step, because a constraint you cannot explain plainly is a constraint you do not actually understand. And at each bedrock we poke: is a novel solution visible? Any such idea ships only as a scouted claim — a derivation, a simulation with committed artifacts, or a dated falsifiable forecast. Bare ideas are worth nothing in 2026; anyone can generate those with a language model in an afternoon.
 
-State plainly what the field has actually demonstrated — the bedrock every avenue shares. These are ESTABLISHED claims: asserted directly, each with a citation [Journal 'YY]. Being confident here is correct, not incautious; documented facts are bedrock, and timidity about them is its own kind of dishonesty. Save the hedging for the claims that have earned it.
+**What this dossier can and cannot settle, stated up front.** Everything here runs on simulation, published evidence, and reasoning — no lab. That covers more than it sounds like: the instruments that grade fault-tolerance proposals are themselves classical simulations, so a no-lab analyst can check the field's homework and register positions the field must later confront. What it cannot do is derive the winner from first principles — the race partly turns on engineering facts no simulation settles, such as laser power scaling, fabrication yield, and cryogenic plant economics. Where that is the situation, this dossier says so and places a labeled bet instead of an assertion.
 
-**Go deeper: NAME THE TECHNICAL LAYER**
+## 02 THE STATE OF THE RACE
 
-Equations and formal detail live here, collapsed by default. The narrative above must be complete without opening this.
+Verified 2026-07-17 except where labeled. **The storage half of the problem is cracking — in simulation.** For twenty years the textbook number was brutal: roughly a hundred to a thousand fragile physical qubits to make one reliable logical qubit (A logical qubit is a single reliable qubit of computation built out of many fragile physical qubits, with error correction constantly repairing it. Historically a hundred to a thousand physical qubits were needed to hold one logical qubit steady enough to compute with. Lowering that ratio is most of the fight.). In April 2026 a QuEra/Harvard/MIT team showed — **in circuit-level simulation, not on hardware** — qLDPC (Quantum low-density parity-check (qLDPC) codes are error-correcting codes whose parity checks each touch only a few qubits, letting them protect many logical qubits at once far more cheaply than the surface code. The catch is that they demand long-range connections between qubits that a flat chip does not naturally provide.) codes with encoding rate above 1/2 — about two physical qubits per logical one — projecting memory error rates near 1.3×10^-13 per logical qubit per round at 0.1% physical error [preprint '26]. The team's own caveat is the whole story of this dossier: **it is a memory result.** Performing logical gates (the operations that lattice surgery (Lattice surgery is a way to perform logical operations between error-corrected qubits by temporarily merging and splitting their protective code patches instead of physically moving qubits. It is the standard toolkit for computing on surface-code logical qubits; high-rate codes need their own analogues, which is much of the open problem.) and its relatives carry out) on these ultra-high-rate codes remains open. The field can increasingly *store* a protected qubit cheaply; it cannot yet *compute* on one cheaply. That gap — memory-to-compute — is the racecourse.
 
-```math
-E = mc^2
-```
+**The decoding frontier moved, with a boundary worth stating exactly.** A decoder (A decoder is the classical program that watches a quantum computer's error signals in real time and works out what physically went wrong, so the machine can correct it before errors pile up. It has to keep pace with the hardware; a decoder that falls behind lets errors accumulate faster than they are fixed.) is the classical program that watches a quantum computer's error signals and decides, live, what went wrong. Two 2025–26 results: IBM's Relay-BP reports about 10× accuracy over the previous standard (BP+OSD) for qLDPC codes while staying fast and compact enough for FPGAs [IBM '26]; Google's AlphaQubit 2 demonstrates real-time neural decoding under 1 microsecond per cycle — surface code to distance 11, color code to distance 9 [arXiv '26]. The boundary matters: AlphaQubit 2's claims cover *topological* codes only, and real-time decoding for high-rate qLDPC codes at scale remains open. So any sentence saying "machine-learning decoders are too slow for live correction" is now false; any sentence saying "real-time qLDPC decoding is solved" is also false.
 
-## 03 THE AVENUES
+> **REPORTED** — **Logical-qubit leaderboard, inherited from secondary sources.** Trackers and the map dossier circulate a leaderboard — QuEra 96 logical qubits from 448 physical, Quantinuum 48 from 98 ions, Atom Computing 24, Google 1 below-threshold logical qubit on Willow. These are aggregator and map-dossier figures, **not yet verified against primary sources**, and this dossier adopts none of them here: each number gets verified in its platform's chapter, not repeated as fact. That some survive verification unchanged is likely; that all will is exactly the assumption this dossier exists to not make. No independent primary confirmation has been checked as of 2026-07-17.
 
-The heart of the survey: walk each avenue in turn, and label each exactly as strongly as its evidence allows. The four conventions below show every status home.
+> **REPORTED** — **Vendor roadmaps, labeled as what they are.** IBM targets its Starling system (~200 logical qubits, 100M gates) around 2029; QuEra projects gigaquop-class machines with over 1,000 logical qubits; multiple vendors project 100+ logical qubits by 2026–27. These are vendor projections from interested parties with no independent verification. The mundane reading, stated with equal prominence: roadmaps are marketing-adjacent planning documents, not results — they are recorded here only to feed the bet registry in §05, and adopted nowhere as fact.
 
-### Avenue A — a mature, documented direction
+## 03 THE MULTIPLIER PROBLEM
 
-Describe it in plain language and assert what is established about it, with sources [Journal 'YY]. No callout box — established prose carries itself.
+Why the race cannot currently be scored: try to answer "who is winning" from the 2026 literature and you hit a wall this dossier has now measured from both sides. **The wall.** The field's unit of progress-claim is a multiplier against a baseline the authors chose themselves. Within roughly thirteen months, all CITE-verified at the grades stated in the committed scouting ledger (`expedition/SCOUTING_LEDGER.md`, 2026-07-17):
 
-### Avenue B — a direction with a central open question
+a transversal STAR architecture reports **~250× time savings and 2× space savings** against "a fixed-connectivity, fully fault-tolerant scheme" [PRX Quantum '26]; a heterogeneous design reports **752× speedup and over 10× fewer qubits** — against "NA-only baselines" and "SC-only systems", two different baselines in one abstract [arXiv:2601.10144]; another reports **138× fewer physical qubits** "under detailed accounting" [arXiv:2604.06319]; a high-rate STAR reports **20–40× space-time cost** reduction against "the previous best-in-class STAR architecture" [arXiv:2606.25011]; Tour de Gross reports **~10× qubit efficiency** against "equivalent surface-code architectures" [arXiv:2506.03094]; and routing codes report **~8× overhead** reduction against the surface code "at equal logical error" [arXiv:2606.25330].
 
-Lay out the avenue, then mark the open question honestly, right where it arises:
+Every multiplier is honest by its own lights. **No two share a baseline, a cost model, a noise model, or a decoder — so no two can be compared, and no paper claims they can.** When one team tried to put resource estimates on a common physical-qubit scale, they excluded the most interesting new result rather than recost it, and said so explicitly [arXiv:2508.14011]. The comparison everyone needs is the comparison nobody is paid to do: it earns no novelty credit and annoys everyone whose number shrinks.
 
-> **OPEN-UNVERIFIED** — **Honest label:** DESCRIBE THE UNVERIFIED CLAIM. State that it is claim `CNN` in the public ledger and an open challenge: **the first person to confirm or refute it gets named credit in the next version.**
+**Exhibit 0 — a number in circulation that its own paper does not contain.** Trade coverage of the transversal STAR result reports the architecture reaching "roughly 1,500 to 3,000 qubits." The paper states about 10,000 physical qubits at p=10^-3, and full-text search finds no 1,500 or 1,500–3,000 figure anywhere in it [PRX Quantum '26]. A mundane explanation exists and is stated here with equal prominence, and is itself **unverified**: the coverage may have conflated this paper with a different, later one — the high-rate STAR result [arXiv:2606.25011] — but that conflation is plausible, not confirmed. Either way the observable stands: a resource figure is circulating attached to a paper that does not contain it. This is the multiplier problem in miniature, found before the audit even opened, in the first claim it looked at.
 
-### Avenue C — a direction you are making a forward bet on
+**The self-demonstration.** This dossier's own scouting ledger committed the same pathology in its first draft, five times, before any byte was sealed: a multiplier paraphrased loosely, a publication date lifted from a press release, a scaling figure quoted past its stated scope, a metric inherited from an aggregator — and, in the other direction, a verified fact wrongly downgraded to "unverified" on the strength of a memory instead of a fetch. All five were caught at the pre-commit gate by one method: fetching the primary source and reading the sentence. Nothing else worked — not memory, not the abstract, not the search snippet. The full errata (SR-1 through SR-5) are in the committed ledger, `expedition/SCOUTING_LEDGER.md`. A dossier whose thesis is "claims decay when nobody rechecks them" keeps its own decay log in public; that is the price of the thesis, and also its best evidence.
 
-Where you offer a judgment about how an avenue will develop, label it as a forecast — never smuggle an estimate in as a fact:
+**What Chapter 8 does about it.** Re-express every multiplier above on one stated baseline with one stated accounting; publish each claim's sensitivity to the choices its authors made; and register dated forecasts on which survive. With a pre-registered kill condition: if no ordering changes by more than its own stated uncertainty, that is reported as a negative result — at full grade, because "the field's claims turn out mutually consistent after all" is a finding too.
 
-> **FORECAST** — **Labeled estimate:** STATE THE ESTIMATE (e.g. ~35%) AND THE REASONING BEHIND IT. **Signpost:** name the dated, falsifiable event that will later mark this right or wrong (e.g. "by 2030, X is demonstrated at scale Y"). A forecast without a dated signpost is just an opinion with a number on it; the signpost is its verifier.
+## 04 SIX PLATFORMS, SIX WALLS
 
-### Avenue D — a direction sourced only to an interested party
+The drill plan. Each platform below gets one paragraph here and one full chapter later. The paragraph names what the machine is physically made of, where it verifiably stands, and the **single binding constraint** the chapter will take to bedrock. Numbers marked reported await primary verification in their chapter.
 
-Some avenues live mostly on vendor roadmaps, press-release figures, or claims that have not been independently reproduced. Record them — but mark the provenance plainly:
+> **OPEN-UNVERIFIED** — **The constraint choices are this chapter's own analytical claims, subject to author review.** Naming one binding constraint per platform is a judgment, not yet a verified result: each platform chapter will either confirm its constraint choice or correct it in public. This is an open claim recorded in the scouting ledger (`expedition/SCOUTING_LEDGER.md`), and the first person to show a platform's true binding wall is a different one gets named credit in the next version.
 
-> **REPORTED** — **Non-independent source:** NAME THE INTERESTED-PARTY SOURCE and state plainly it is not independently reproduced. Give the mundane candidate explanation with at least equal prominence (or state that none has been identified). This is recorded for completeness; it is NOT the author's claim, and it gets no vote on any other claim's status.
+**Chapter 2 — Neutral atoms.** Individual rubidium or ytterbium atoms held in a grid of laser "tweezers"; qubits are atomic energy levels; entanglement comes from briefly exciting atoms into swollen Rydberg (A Rydberg state is an atom with one electron kicked into a hugely swollen orbit, which makes the atom momentarily enormous and lets it push on its neighbours. Neutral-atom machines flick atoms into Rydberg states to make them interact and entangle, then let them relax.) states that force neighbours to interact; atoms are physically moved mid-computation to rewire connectivity. The current logical-count leader (reported) and home of the 2:1 memory simulation [preprint '26]. **Binding constraint: loss.** Atoms escape their traps — during moves, during gates — and a lost atom is not a flipped bit but a *missing* one. The best architecture papers price loss as an effective Pauli error [PRX Quantum '26]; whether that modeling choice is conservative or optimistic against the platform's real physics is exactly the question Chapter 2 drills. Plus the racecourse question: the compute gap on high-rate codes is widest here because the storage win is biggest here.
 
-## 04 WHAT WOULD SETTLE THE OPEN QUESTIONS
+**Chapter 3 — Superconducting.** Aluminium circuits on silicon chips, cooled to about 15 millikelvin — colder than deep space — where current flows without resistance; each qubit is a tiny oscillating circuit with a Josephson junction as its nonlinear heart. The most industrially mature platform: Google's below-threshold error correction (reported, verify in Chapter 3) and IBM's public fault-tolerance roadmap (reported, vendor). **Binding constraint: wiring.** Every qubit needs control lines into the fridge, and qLDPC codes additionally demand long-range couplings a flat chip does not natively have. Multilayer wiring, couplers, and modular chip-to-chip links are the fixes on the table; their measured cost is the drill.
 
-For each open avenue, spell out the specific result, measurement, or signpost that would move it from open to established. This is what turns a survey from a snapshot into an instrument: a reader knows exactly what work is worth doing next, and your OPEN claims become standing invitations with named credit attached.
+**Chapter 4 — Trapped ions.** Charged atoms (barium, ytterbium) suspended in electromagnetic fields inside a vacuum; qubits live in atomic states so identical and isolated they hold the field's fidelity records (reported, verify in Chapter 4); any ion can talk to any other via their shared repulsion. **Binding constraint: speed and optical scale.** Gates run thousands of times slower than superconducting ones, and each ion needs precision laser addressing — scaling to thousands of qubits means scaling an optics bench. Chip-based traps and photonic interconnects are the candidate fixes; whether the clock-speed deficit is fatal at algorithm scale is a computable question, and Chapter 4 computes it.
 
-## 05 SYNTHESIS
+**Chapter 5 — Photonics.** The qubit is a particle of light in a silicon waveguide — no vacuum chamber, no dilution refrigerator, and networking is native because the qubit already *is* the thing that travels. **Binding constraint: loss, again — but worse.** A lost photon is simply gone, and most entangling operations are probabilistic (by design they fail on most attempts), so the architecture leans on massive redundancy; the whole platform lives or dies on driving optical loss below the fault-tolerance threshold. The map dossier's author holds a tracked, labeled conviction that the long-term endpoint of quantum computing is optical (reported — the author's own prior forecast, QCF8 in the map dossier), recorded here and deliberately given no vote until Chapter 5 grades the loss numbers.
 
-Pull the landscape together: which avenues are solid, which are live bets, which are mostly noise, and what the honest shape of the field is once every claim wears its true label. Close on the line you want to leave the reader with.
+**Chapter 6 — Silicon spin.** A single electron's spin, trapped in a transistor-like structure on a standard chip — manufactured, in 2025 demonstrations, on the same 300mm foundry lines that make ordinary processors (reported, verify in Chapter 6). The scaling story is the whole pitch: ride the trillion-dollar semiconductor industry. **Binding constraint: no logical qubit yet.** Highest manufacturing ceiling, lowest demonstrated floor — no error-corrected logical qubit exists on this platform yet (reported). The drill: what verified device-to-device variability and wiring density actually imply for when one can.
 
-*End with the line your readers should carry away.*
+**Chapter 7 — The engineered-qubit bets: topological and bosonic/cat.** Two platforms that redesign the qubit itself rather than protecting a fragile one. Topological (Microsoft): encode information in exotic quasiparticle states that are *intrinsically* hard to disturb — if those states exist as claimed, which the physics community actively disputes; the reviewers of the flagship result noted it does not by itself evidence the underlying Majorana modes (reported, verify in Chapter 7). Bosonic/cat (Alice & Bob, AWS lineage): store the qubit in an oscillator's states arranged so one error type is exponentially suppressed by construction, leaving a cheaper repetition code to catch the rest. **Binding constraint: existence and extrapolation** — the topological bet turns on a disputed physics claim, the cat bet on whether single-mode suppression scales as projected. One chapter, because both are wagers that the right qubit makes the error-correction mountain smaller instead of climbing it.
+
+## 05 THE BET REGISTRY — OPENED
+
+Books about this field go stale the month they print, and their authors are never scored. This dossier's alternative: dated, falsifiable, mechanically resolving public bets, registered before the platform chapters run and scored on their dates whether anyone is watching or not. Three inaugural signposts are drafted below. **The percentages are the author's alone** — the AI drafts the signpost and the resolution mechanism, never the number. The author sets each percentage before this chapter seals, and may strike or reword any signpost: **[AUTHOR — percentages and signpost-wording pending; required before seal]**.
+
+> **FORECAST** — **B1 — The compute gap closes first where storage won.** By 2027-12-31, at least one hardware demonstration (not simulation) of a two-qubit logical gate on a qLDPC code with encoding rate at least 1/4 is public. **Resolution:** an arXiv preprint or journal paper reporting hardware data meeting the stated terms; resolves TRUE/FALSE on the date. **Signpost:** 2027-12-31. **Author's probability:** ~?% — author to set.
+
+> **FORECAST** — **B2 — Platform of that first demonstration.** Conditional on B1 resolving TRUE: the platform is neutral atoms. **Resolution:** the platform named in the resolving paper. **Signpost:** 2027-12-31. **Author's probability:** ~?% — author to set.
+
+> **FORECAST** — **B3 — A vendor roadmap, scored rather than repeated.** By 2026-12-31, IBM publicly reports its Kookaburra system operating as a qLDPC memory with a logical processing unit, per its stated 2026 roadmap. **Resolution:** an IBM public technical announcement plus at least one independent secondary report. **Signpost:** 2026-12-31. **Author's probability:** ~?% — author to set.
+
+The registry grows with each platform chapter: every chapter must deposit at least one new dated bet at its close. Resolved bets are scored in public, right or wrong, in the chapter following their date.
+
+## 06 METHOD, HONESTLY
+
+Every factual claim in this dossier is verified against a primary source on a stated date before it is asserted; recalled numbers are inadmissible. Measured results and vendor projections are separated *within single sentences*. Verification failures are fixed in the paper, never in the tolerance. The dossier's own errors are findings: they are recorded in a public, append-only ledger with named errata, because the alternative — quiet correction — is the exact decay mechanism this dossier documents in others. The author reviews by consistency and reality checks on end results, not by re-derivation.
+
+**AI-use disclosure —** **[AUTHOR to write in their own words; required before this chapter seals]**. This slot renders visibly open by design: it is the author's to fill, and no draft fills it for them.
+
+*Next: Chapter 2 — Neutral atoms. The loss drill.*
 
 ## References
 
-- **Journal 'YY** — @@CITE-WHO@@. @@CITE-WHAT@@ *@@CITE-SRC@@*
+- **Zenodo '26** — Ali-Khan (2026), dossier-QC-Accelerate-002. The prior lineage dossier; it certified that an automated search loop's error-correcting code beats the matched-efficiency human benchmark 4.6x per logical qubit at a hardware-calibrated circuit-level operating point, and established the verify-on-a-stated-date measurement discipline this dossier runs on. *Concluded at Chapter 5, v5.0.0, DOI 10.5281/zenodo.21360979 (concept DOI 10.5281/zenodo.21270186)*
 
-- **Journal 'YY** — @@CITE-WHO@@. @@CITE-WHAT@@ *@@CITE-SRC@@*
+- **preprint '26** — Zhao, Duckering, Gu, Maskara, Zhou (QuEra / Harvard / MIT), preprint (April 2026). Circuit-level SIMULATION of ultra-high-rate qLDPC codes with encoding rate above 1/2 (about two physical qubits per logical), projecting memory error near 1.3x10^-13 per logical qubit per round at 0.1% physical error. It is a memory result only — logical gates on these codes remain open, the team's own caveat. *Preprint, April 2026, building on Kasai's 2026 affine-permutation construction; verified 2026-07-17*
+
+- **IBM '26** — IBM Research (2025–2026). Relay-BP, a belief-propagation decoder variant reporting about 10x accuracy over the previous BP+OSD standard for qLDPC codes while staying fast and compact enough for FPGA deployment. *IBM Research publication record; verified 2026-07-17*
+
+- **arXiv '26** — Google (Quantum AI / DeepMind), arXiv:2512.07737 (2026). AlphaQubit 2, a neural decoder achieving real-time decoding under 1 microsecond per cycle for topological codes — surface code to distance 11 and the first real-time decoding of the color code to distance 9. It does not cover high-rate qLDPC codes. *arXiv:2512.07737; verified 2026-07-17*
+
+- **PRX Quantum '26** — Ismail, Chen, Zhao, Weiss, Liu, Zhou, Wang, Sornborger, Kornjaca (QuEra / Los Alamos), arXiv:2509.18294. Transversal architecture for megaquop-scale simulation with neutral atoms; reports ~250x time and 2x space savings over a fixed-connectivity fully fault-tolerant scheme, gives about 10,000 physical qubits at p=10^-3 for its headline regime, and prices atom loss explicitly as an effective Pauli-Y channel. Full text verified 2026-07-17. *arXiv:2509.18294; journal-ref PRX Quantum 7, 020343 (2026)*
+
+- **arXiv:2601.10144** — arXiv:2601.10144 (2026). A heterogeneous neutral-atom / superconducting architecture reporting 752x speedup over NA-only baselines on average and over 10x physical-qubit footprint reduction versus SC-only systems, from an end-to-end cost model — two different baselines in one abstract. *arXiv:2601.10144; abstract verified 2026-07-17*
+
+- **arXiv:2604.06319** — arXiv:2604.06319 (2026). Reports 138x fewer physical qubits for its architecture, qualified 'under detailed accounting'. *arXiv:2604.06319; abstract verified 2026-07-17*
+
+- **arXiv:2606.25011** — arXiv:2606.25011 (2026). A high-rate STAR architecture reporting 20–40x space-time cost reduction versus the previous best-in-class STAR architecture; a distinct, later result from arXiv:2509.18294. *arXiv:2606.25011; abstract verified 2026-07-17*
+
+- **arXiv:2506.03094** — Yoder et al., 'Tour de Gross', arXiv:2506.03094 (2025). A modular architecture on bivariate bicycle codes reporting about 10x qubit efficiency versus equivalent surface-code architectures. *arXiv:2506.03094; abstract verified 2026-07-17*
+
+- **arXiv:2606.25330** — Routing codes, arXiv:2606.25330 (2026). Reports about 8x overhead reduction versus the surface code at equal logical error, with code families buildable across platforms. *arXiv:2606.25330; abstract verified 2026-07-17*
+
+- **arXiv:2508.14011** — 'Brace for impact: ECDLP challenges for quantum cryptanalysis', arXiv:2508.14011 (2025), section 4.7. Puts resource estimates on a common physical-qubit scale but explicitly declines to merge a native-qLDPC architecture result into the series rather than recost it — practitioners naming the incomparability wall and stopping there. *arXiv:2508.14011 section 4.7; verified 2026-07-17*

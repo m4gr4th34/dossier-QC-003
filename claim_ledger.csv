@@ -1,5 +1,12 @@
 id,claim,type,verifier,status
-C01,PLACEHOLDER — replace with your first claim,NUM,verify_numbers.py #1,OPEN
-C02,PLACEHOLDER — replace with your second claim,CITE,citation_audit.md,OPEN
-C03,PLACEHOLDER — replace with a novelty claim,NOVEL,prior-art search DATE,TO-OUR-KNOWLEDGE
-C04,PLACEHOLDER — replace with a forecast (reasoning + dated signpost required),FORECAST,signpost DATE,OPEN-UNVERIFIED
+CM1,"STAR reports ~250x time savings and 2x space savings vs ""a fixed-connectivity, fully fault-tolerant scheme"" (arXiv:2509.18294; PRX Quantum 7, 020343, 2026)",CITE,"primary-source fetch 2026-07-17, see expedition/SCOUTING_LEDGER.md",VERIFIED
+CM2,"Heterogeneous NA/SC architecture reports 752x speedup vs NA-only baselines and >10x fewer qubits vs SC-only systems (arXiv:2601.10144)",CITE,"primary-source fetch 2026-07-17, see expedition/SCOUTING_LEDGER.md",VERIFIED
+CM3,"Architecture reports 138x fewer physical qubits ""under detailed accounting"" (arXiv:2604.06319)",CITE,"primary-source fetch 2026-07-17, see expedition/SCOUTING_LEDGER.md",VERIFIED
+CM4,"High-rate STAR reports 20-40x space-time cost reduction vs the previous best-in-class STAR architecture (arXiv:2606.25011)",CITE,"primary-source fetch 2026-07-17, see expedition/SCOUTING_LEDGER.md",VERIFIED
+CM5,"Tour de Gross reports ~10x qubit efficiency vs equivalent surface-code architectures (arXiv:2506.03094)",CITE,"primary-source fetch 2026-07-17, see expedition/SCOUTING_LEDGER.md",VERIFIED
+CM6,"Routing codes report ~8x overhead reduction vs the surface code at equal logical error (arXiv:2606.25330)",CITE,"primary-source fetch 2026-07-17, see expedition/SCOUTING_LEDGER.md",VERIFIED
+CX0,"Exhibit 0: the ""roughly 1,500 to 3,000 qubits"" figure circulating in trade coverage of arXiv:2509.18294 does not appear anywhere in the paper, which states ~10,000 physical qubits at p=1e-3",CITE,"full-text fetch 2026-07-17 (arXiv:2509.18294), see expedition/SCOUTING_LEDGER.md",VERIFIED
+CR1,"Logical-qubit leaderboard (QuEra 96 from 448; Quantinuum 48 from 98; Atom Computing 24; Google 1 below-threshold on Willow) inherited from aggregators and the map dossier, not verified against primary sources",REPORTED,"per-platform chapters (Ch2-Ch7)",REPORTED
+CB1,"B1: by 2027-12-31, at least one public hardware demonstration (not simulation) of a two-qubit logical gate on a qLDPC code with encoding rate >= 1/4",FORECAST,signpost 2027-12-31,OPEN-UNVERIFIED
+CB2,"B2: conditional on B1 resolving TRUE, the platform of that first demonstration is neutral atoms",FORECAST,signpost 2027-12-31,OPEN-UNVERIFIED
+CB3,"B3: by 2026-12-31, IBM publicly reports Kookaburra operating as a qLDPC memory with a logical processing unit, per its stated 2026 roadmap",FORECAST,signpost 2026-12-31,OPEN-UNVERIFIED

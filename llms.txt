@@ -1,6 +1,6 @@
-# Dossier QC-003 (working title — topic to be set)
+# Dossier QC-003 — The Race to the First Fault-Tolerant Quantum Computer
 
-> Working shell.
+> Chapter 1 — reconnaissance.
 
 ## Working draft
 
