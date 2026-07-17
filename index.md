@@ -10,7 +10,7 @@ An Open Dossier · **QC-003**
 
 | Avenue | Thesis | Status | Forecast | Sources |
 |---|---|---|---|---|
-| Neutral atoms | Rydberg-linked atoms in laser tweezers; logical-count leader and home of the 2:1 memory simulation. Binding constraint: atom loss — a lost atom is a missing bit, not a flipped one. | OPEN-UNVERIFIED | — | qmem, star |
+| Neutral atoms | Rydberg-linked atoms in laser tweezers; the logical-count leader. Binding constraint restated at bedrock (Ch2): can the loss-instrumentation stack (detect → locate → decode → replace) run inside deep logical circuits faster than the loss it manages, on one atomic species, at scale? | OPEN-UNVERIFIED | — | qmem, star, bluvstein |
 | Superconducting | Aluminium circuits at 15 mK; the most industrially mature platform. Binding constraint: wiring — control lines and the long-range couplings qLDPC codes need that a flat chip lacks. | OPEN-UNVERIFIED | — | relaybp |
 | Trapped ions | Charged atoms in EM traps holding the field's fidelity records, all-to-all connected. Binding constraint: speed and optical scale — gates thousands of times slower, each ion laser-addressed. | OPEN-UNVERIFIED | — | QCF-Ch4 |
 | Photonics | Light in silicon waveguides; native networking, no cryostat. Binding constraint: loss, worse — lost photons and probabilistic gates force massive redundancy below the loss threshold. | OPEN-UNVERIFIED | — | QCF-Ch5 |
@@ -19,6 +19,7 @@ An Open Dossier · **QC-003**
 | B1 — compute gap closes where storage won | By 2027-12-31, a public hardware demonstration (not simulation) of a two-qubit logical gate on a qLDPC code with encoding rate ≥ 1/2. | FORECAST | ~25% by 2027-12-31 | qmem, star |
 | B2 — platform of that first demonstration | Conditional on B1 resolving TRUE: the platform named in the resolving paper is neutral atoms. | FORECAST | ~45% by 2027-12-31 | qmem |
 | B3 — a vendor roadmap, scored not repeated | By 2026-12-31, IBM publicly reports Kookaburra operating as a qLDPC memory with a logical processing unit, per its stated 2026 roadmap. | FORECAST | ~60% by 2026-12-31 | relaybp |
+| B4 — reloading meets error correction | By 2027-12-31, a hardware experiment demonstrates repeated QEC rounds on at least one logical qubit while lost atoms are replaced mid-experiment by continuous or mid-circuit reloading — a logical qubit not lifetime-bounded by the single-atom trap lifetime. | FORECAST | ~55% by 2027-12-31 | chiu, baranes, bluvstein |
 
 ## Consistency checks
 
@@ -104,6 +105,100 @@ Every factual claim in this dossier is verified against a primary source on a st
 
 *Next: Chapter 2 — Neutral atoms. The loss drill.*
 
+**CHAPTER 2 — NEUTRAL ATOMS: THE LOSS DRILL**
+
+*From "atoms escape" to the best-instrumented error in quantum computing. Every number below is verified against the named primary source on 2026-07-17 unless labelled REPORTED. This chapter is self-contained: nothing in it requires reading any other chapter.*
+
+## 01 THE MACHINE, PHYSICALLY
+
+A neutral-atom quantum computer is a vacuum chamber, some lasers, and a cloud of individual atoms — usually rubidium or ytterbium. Each atom is held by an optical tweezer (An optical tweezer is a laser beam focused so tightly that its light forms a tiny bowl of energy an atom settles into, the way a marble settles into a dimple. A grid of thousands of these bowls, each holding a single atom, is the qubit register.): a laser focused so tightly its light forms a tiny bowl of energy an atom settles into, the way a marble settles into a dimple. Thousands of these bowls in a grid, each holding exactly one atom, form the qubit register — a record-holding array now traps 6,100 atomic qubits in about 12,000 tweezer sites [Nature '25].
+
+The qubit is the atom's internal state — two energy levels of its outermost electron or its nucleus, playing 0 and 1. To make two atoms interact, lasers briefly promote them into a Rydberg state (A Rydberg state is an atom with one electron promoted to a hugely swollen orbit, so the atom briefly balloons thousands of times over and shoves its neighbours' energy levels around. Flicking a pair of atoms into Rydberg states is how neutral-atom machines make them interact and entangle.), where the electron orbits so far out the atom swells thousands of times over and physically shoves its neighbour's energy levels around — a programmable, switchable interaction. And because the traps are made of light, atoms can be *moved* mid-computation: pick one up in a steerable tweezer, carry it across the array, and any qubit can be made adjacent to any other. That mobility is the platform's superpower.
+
+It is also where this chapter's subject enters. Everything above shares one failure mode no other major platform has in the same form: **the atom can simply leave.**
+
+## 02 WHAT LOSS IS, AND WHY IT IS NOT A BIT FLIP
+
+Every quantum computer fights errors. Most are corruptions: the qubit is still there, but its state flipped or blurred, and error-correcting codes are built for exactly that. Atom loss is different in kind. The trap's energy bowl is shallow — in temperature units, well under a thousandth of a degree above absolute zero — so anything that gives the atom a modest kick sends it out of the bowl and gone: not a flipped bit, a **missing** bit. The qubit has not taken a wrong value; it has ceased to exist at its address. A code expecting to measure that qubit gets, in effect, silence — and naive error correction handles silence badly, because its whole machinery assumes there is a qubit there to interrogate.
+
+Hold that thought, because §05 inverts it: the same property that makes loss alien to standard error correction — the qubit's *absence* — is detectable in a way ordinary errors never are, and the platform's entire 2023–2026 research arc has been about cashing that in.
+
+## 03 WHERE THE ATOMS GO — MECHANISMS AND VERIFIED NUMBERS
+
+Five mechanisms dominate. For each: the physics in plain terms, then the measured number.
+
+**(a) Background-gas collisions — the vacuum clock.** The chamber is a very good vacuum, but not perfect; stray room-temperature gas molecules occasionally slam into a trapped atom, and one hit ejects it. This sets a vacuum-limited lifetime (The vacuum-limited lifetime is how long a trapped atom survives on average while doing nothing at all, set by how often a stray room-temperature gas molecule slams into it and knocks it out. Better vacuum and colder chamber walls lengthen it.) — the average survival time of a trapped atom doing nothing. Typical working systems: **about 60 seconds** [Nature '25]. Room-temperature record: **22.9(1) minutes** [Nature '25]. Cryogenic systems, whose cold walls pump away residual gas: **~3,000 seconds** [arXiv '24], and a July 2026 platform reporting a **2-hour trap lifetime** [arXiv '26].
+
+**(b) Heating by the trap's own light.** The trapping laser jiggles the atom — photon recoil and intensity noise steadily heat it — and because the bowl is finite, a hot-enough atom boils out even before its average energy reaches the rim [arXiv '24]. This is why atoms need periodic re-cooling, and re-cooling has its own price: a measured loss of **1.1(1)×10⁻⁴ per cooling pulse** in the cryogenic system above [arXiv '24].
+
+**(c) Imaging.** Reading out or checking atoms means scattering light off them, which heats them and can excite them into states the trap repels. Measured per-image loss spans two orders of magnitude: **1.5% per image** in one ytterbium setup, about 0.9 points of it from off-resonant scattering and photoionization [QST '26], down to a record steady-state imaging survival of **99.98952(1)% per 80-ms image** — about one loss per 10,000 images, itself mostly the vacuum clock ticking [Nature '25].
+
+**(d) Gates — the Rydberg toll.** Entangling gates require exciting atoms to Rydberg states, which ground-state tweezers do not confine (the Rydberg atom is typically *anti*-trapped), and from which the atom can decay into states outside the qubit space — leakage that frequently ends in loss. This is the toll booth every two-qubit gate passes through, and why gate fidelity and loss are entangled subjects here. Reference numbers: metastable-ytterbium two-qubit gates at **0.980(1)** fidelity with mid-circuit erasure conversion in 2023 [Nature '23]; current vendor-reported two-qubit fidelities **above 99.2%** — [REPORTED: a QuEra figure via secondary coverage, not independently verified today; recorded, not adopted].
+
+**(e) Transport.** Moving atoms — the superpower — shakes them; acceleration heats, and heating compounds mechanism (b). The best current architectures fold transport into their error budgets, and one flagship theory paper prices transport loss as an explicit channel (`p_move,loss`) [PRX Quantum '26].
+
+## 04 THE SCALING LAW — WHY A LEAKY BUCKET GETS WORSE FASTER THAN IT LOOKS
+
+The cruel arithmetic: if one atom survives a duration T with probability close to 1, an array of N atoms *all* surviving is that probability raised to the Nth power. Survival decays like exp(−N·T/τ), where τ is the lifetime from mechanism (a). Losses anywhere in a code block are everyone's problem.
+
+The record-holding array states this about itself: with 6,100 atoms and a 22.9-minute lifetime, **the chance of losing at least one atom somewhere in the array passes 50% within about 100 milliseconds** [Nature '25]. One hundred milliseconds — against algorithms whose useful runs are minutes to hours. And that is the *record* apparatus doing *nothing*: no imaging, no gates, no moves, each of which adds its toll from §03.
+
+This is the bedrock form of the constraint. Not "atoms sometimes escape" but: **the product N·T is on a budget set by the vacuum, and every useful direction — more qubits, deeper circuits — spends it.** A fault-tolerant machine wants both factors large at once. Something has to give, and §05–§06 are the field's answer to what.
+
+## 05 THE TWIST — LOSS IS THE BEST-INSTRUMENTED ERROR IN THE BUILDING
+
+Here the story turns, and this is the part casual coverage misses. An ordinary qubit error is invisible: you cannot check "did this qubit flip?" without disturbing it, so codes must *infer* errors indirectly, and every inference is statistical. But "is there an atom here at all?" is a question you **can** ask — shine light structured so an atom answers and an absence stays dark, without reading the quantum state of the survivors. An error whose *location* is known is an erasure (An erasure is an error whose location is known — which qubit failed, and ideally when. That information is worth a lot: a distance-d code can correct about twice as many located erasures as ordinary unlocated errors. Converting atom loss into an erasure is this platform's central trick.), and erasures are the gold-standard error: a code of distance d can correct roughly **twice as many located erasures as unlocated errors**. Loss, uniquely among this platform's failure modes, converts into exactly that gold standard.
+
+The field has spent three years industrialising the conversion, and the receipts are published. **Erasure conversion at the qubit level:** encode the qubit in a metastable level of ytterbium-171 so the dominant gate errors kick the atom into *disjoint, observable* states — errors become flagged departures. Proposed in 2022 [Nat. Commun. '22], demonstrated with mid-circuit detection in 2023, the detection itself disturbing surviving qubits below the 10⁻⁵ level [Nature '23], and extended in 2026 to full **logical qubits with erasure conversion**: a [[4,2,2]] code too small to correct even one unlocated error nonetheless corrected errors during decoding, because erasure-location information did the work distance could not — improved logical performance with **no postselection** [Nat. Phys. '26].
+
+**Loss-aware decoding theory:** a general framework for loss in logical algorithms — including a "delayed-erasure decoder" that exploits loss detected only later, when the exact moment is unknown — with the sharp split this chapter uses: a *loss* leaves the qubit unavailable until detected and replaced; an *erasure* is a loss caught at the very gate layer it happened, location and time both known [PRX '26]. The same paper's structural finding: subroutines heavy in gate teleportation *naturally* replace qubits as they go — loss handling for free where the algorithm already teleports.
+
+**Loss detection inside the flagship experiment:** the platform's headline fault-tolerance result — 448 atoms implementing the key elements of a universal fault-tolerant architecture — achieved its **2.14(13)× below-threshold** error suppression explicitly "by leveraging atom loss detection and machine learning decoding" [Nature '26]. Loss handling is not a side-quest; it is *in the headline number* of the platform's best result. And for species without convenient metastable structure, **leakage-to-erasure circuits** supply the conversion [PRX Quantum '24], alongside a growing loss-tolerant code and decoder literature — optimal-distance atom-loss correction via a Pauli envelope [arXiv '26] and degenerate erasure decoding [npj QI '26].
+
+Plain-language summary a student can carry: **on this platform, the scariest error is also the only one that announces itself.** The research programme is to make it announce itself earlier, louder, and more cheaply.
+
+## 06 THE FIX STACK — EVERY CANDIDATE, WITH STATUS
+
+Bedrock means listing all of them, with what each has actually shown.
+
+**Fix 1 — Better vacuum, colder walls (attack τ). Status: demonstrated, compounding.** 60 s typical → 22.9-minute room-temperature record [Nature '25] → ~3,000 s and ~2 h in cryogenic platforms [arXiv '24] [arXiv '26]. Ceiling: engineering-bounded — buys a constant factor, powerful but never removes the exp(−N·T/τ) form.
+
+**Fix 2 — continuous reloading (Continuous reloading means ferrying fresh cold atoms into the machine and dropping them into empty traps while the computation runs, so a lost atom is replaced rather than mourned. The aim is to break the rule that the whole array's useful lifetime is capped by one atom's trap lifetime.) (refuse to let N·T/τ be the budget). Status: demonstrated at scale, September 2025 — the conceptual break.** A dual "optical conveyor belt" of lattices ferries reservoirs of fresh cold atoms into the science region; tweezers pluck replacements without disturbing stored neighbours' coherence. Measured: **300,000 atoms/s reloaded into tweezers, over 30,000 initialised qubits/s** (15,000/s with rearrangement), an array of **over 3,000 atoms maintained for more than 2 hours** — against its own ~60 s trap lifetime — with stored qubits held in superposition while neighbours were swapped in, operation "in principle, indefinite" [Nature '25]. In parallel, a Princeton demonstration of fast, continuous, coherent atom replacement in a qubit array [arXiv '25]. What it changes: τ stops being the wall; the wall moves to *reload rate versus loss rate*. What it has NOT yet shown: reloading woven into **repeated error-correction rounds on a logical qubit**. Coherent storage during replacement is demonstrated; logical QEC during replacement is the open step — precisely bet B4 below.
+
+**Fix 3 — Erasure conversion (make every loss a located loss). Status: demonstrated through the logical level** [Nat. Phys. '26]. Ceiling: conversion coverage — the fraction of all error events that end up flagged — and the species tax. The best conversion story lives in ytterbium's metastable levels, while the largest arrays and the continuous-reload demonstration live in rubidium. **[OPEN — the author-reviewed analytical claim of this chapter:** the platform's two crown jewels currently sit on different atoms; the other platform chapters will not resolve this, but a single-species unification demo would.]
+
+**Fix 4 — Loss-aware decoding (spend information instead of qubits). Status: theory published at a top venue, already load-bearing in the flagship experiment** [PRX '26] [Nature '26]. Ceiling: decoder runtime and the delay penalty — the later a loss is detected, the more of its damage is unlocated.
+
+**Fix 5 — Architect around it (teleport instead of persist).** Gate-teleportation-heavy circuit structures replace qubits as a side effect of computing [PRX '26]. A 2026 preprint carries this to its logical end: Shor's algorithm with as few as ~10,000 reconfigurable atomic qubits in a loss-managed architecture [arXiv '26] — cited as existence and claim, not as a verified resource count: the preprint is unrefereed and the number is the paper's own.
+
+**Fix 6 — Price it honestly in the noise model.** Not a hardware fix — a truth-in-advertising fix, and this dossier's own lane. See §07.
+
+## 07 THE MODELING QUESTION — WHERE THIS DOSSIER'S AUDIT BITES
+
+The committed scouting ledger of this dossier (Cycle 1, arc E) pre-registered a noise-model fidelity audit; this chapter now states its neutral-atom instance precisely. The platform's flagship *architecture* paper prices atom loss as an **unheralded effective Pauli-Y channel** during gates and transport [PRX Quantum '26]. The platform's flagship *experiments and theory*, per §05, treat loss as **detectable, locatable, and exploitable** — that is the entire content of erasure conversion, delayed-erasure decoding, and loss-detection-assisted below-threshold performance. Both choices are defensible; they are not the same physics, and they should not price the same. An erasure-aware treatment knows *where* the failure sits (worth roughly a factor-two in correctable weight); a Pauli-Y treatment pays no detection machinery and no delay penalty. Which way the resource multiplier moves as the treatment varies across this defensible range is a computable, falsifiable question.
+
+> **OPEN-UNVERIFIED** — **Absence claim, held to "to our knowledge" (searched 2026-07-17).** No published recosting of a headline neutral-atom architecture claim across the loss-treatment range exists. Posted as an open challenge: the first person to produce a published loss-treatment recosting of a headline neutral-atom architecture claim gets named credit in the next version.
+
+> **OPEN-UNVERIFIED** — **Scouted claim — a pre-registered simulation campaign (no result asserted).** Re-simulate a transversal-architecture logical operation at fixed physical error budget under three loss treatments — (i) unheralded Pauli-Y (the STAR choice), (ii) end-of-round delayed erasure (the Baranes decoder's regime), (iii) idealised immediate erasure — and report the logical error rate and resource-multiplier sensitivity across (i)–(iii). Committed artifacts; a stranger reruns the repo and gets the table. This ships as a registered campaign, not a result: no number is asserted here.
+
+## 08 WHAT THIS DOES TO THE RACE — AND TO THIS DOSSIER'S OWN RECORDS
+
+**The constraint restated at bedrock.** Neutral atoms' binding constraint is not "atoms are lost" — that framing is five years stale. It is: **can the platform's loss-instrumentation stack (detect → locate → decode → replace) run inside deep logical circuits at rates that beat the loss it manages, on one atomic species, at scale?** Every piece is separately demonstrated; no demonstration yet composes them all.
+
+> **REPORTED** — **Chapter 1 inheritance, updated.** Chapter 1 carried, as REPORTED, the leaderboard line "QuEra 96 logical qubits from 448 physical." Today's verification: the underlying paper exists and is stronger than the leaderboard line suggests — Nature 649, 39–46 (2026), online 2025-11-10, implementing the key elements of a universal fault-tolerant architecture on up to 448 atoms, 2.14(13)× below threshold, with transversal gates, lattice surgery, and universal logic via transversal teleportation on [[15,1,3]] codes [Nature '26]. The specific "96 logical qubits" count and the "[[16,6,4]]" code identification circulate in the vendor's own blog and secondary trackers but are **not in the paper's abstract**; they remain REPORTED at that level of detail pending full-text verification. The mundane reading, stated with equal prominence: vendor and aggregator framing compresses a Nature result into a leaderboard number, and only the abstract-level claims are primary-verified today.
+
+The registration note attached to this dossier's bet B1 — which raised B1's threshold because a January 2026 result likely already cleared the old bar — is now supported at Nature-paper level rather than aggregator level: hardware logical two-qubit operations on high-rate codes exist; B1's live threshold (encoding rate at least 1/2) remains genuinely open.
+
+## 09 THE CHAPTER'S BET — DEPOSITED TO THE REGISTRY
+
+> **FORECAST** — **B4 — Reloading meets error correction.** By 2027-12-31, a hardware experiment publicly demonstrates repeated quantum-error-correction rounds on at least one logical qubit while lost atoms are replaced mid-experiment by continuous or mid-circuit reloading — i.e., a logical qubit whose protected lifetime is not bounded by the apparatus's single-atom trap lifetime. **Resolution:** an arXiv preprint or journal paper reporting hardware data meeting the stated terms; resolves TRUE/FALSE on the date. **Signpost:** 2027-12-31. **Rationale:** every component exists separately — continuous reload at 300k atoms/s with coherence preserved [Nature '25], coherent replacement [arXiv '25], and loss-aware QEC decoding in hardware [Nature '26] — so the composing experiment is the obvious next flagship for at least two groups, and eighteen months is one flagship-paper cycle. **Author's probability:** ~55%. *AI-drafted estimate (author-delegated 2026-07-17); the author may override any number.*
+
+## 10 METHOD NOTE
+
+Every CITE above was checked against the named primary source (arXiv abstract, arXiv full text, or journal page) on 2026-07-17. REPORTED items name their non-primary provenance. The scaling-law framing in §04 is the cited paper's own. This chapter's one absence claim (§07) is held to "to our knowledge, searched on the stated date" and posted as an open challenge with named credit. **AI-use disclosure (the author's own words) —** Created with heavy AI use, and limited human oversight, to test the capabilities of contemporary state-of-the-art AI.
+
+*Next: Chapter 3 — Superconducting. The wiring drill.*
+
 ## References
 
 - **Zenodo '26** — Ali-Khan (2026), dossier-QC-Accelerate-002. The prior lineage dossier; it certified that an automated search loop's error-correcting code beats the matched-efficiency human benchmark 4.6x per logical qubit at a hardware-calibrated circuit-level operating point, and established the verify-on-a-stated-date measurement discipline this dossier runs on. *Concluded at Chapter 5, v5.0.0, DOI 10.5281/zenodo.21360979 (concept DOI 10.5281/zenodo.21270186)*
@@ -127,3 +222,33 @@ Every factual claim in this dossier is verified against a primary source on a st
 - **arXiv:2606.25330** — Routing codes, arXiv:2606.25330 (2026). Reports about 8x overhead reduction versus the surface code at equal logical error, with code families buildable across platforms. *arXiv:2606.25330; abstract verified 2026-07-17*
 
 - **arXiv:2508.14011** — 'Brace for impact: ECDLP challenges for quantum cryptanalysis', arXiv:2508.14011 (2025), section 4.7. Puts resource estimates on a common physical-qubit scale but explicitly declines to merge a native-qLDPC architecture result into the series rather than recost it — practitioners naming the incomparability wall and stopping there. *arXiv:2508.14011 section 4.7; verified 2026-07-17*
+
+- **Nature '25** — Manetsch, Nomura, Bataille, Leung, Lv, Endres (Caltech), Nature (2025). A tweezer array with 6,100 highly coherent atomic qubits in about 12,000 sites; reports a 22.9(1)-minute room-temperature trap lifetime, imaging survival of 99.98952(1)% per 80-ms image, and that with 6,100 atoms the chance of at least one loss somewhere in the array passes 50% within about 100 ms. *Nature (2025); arXiv:2403.12021; verified 2026-07-17*
+
+- **Nature '25** — Chiu, Trapp, Guo, Abobeih, Bluvstein, Vuletić, Greiner, Lukin et al. (Harvard / MIT), Nature 646, 1075 (2025). Continuous operation of a coherent 3,000-qubit system: 300,000 atoms/s reloaded into tweezers, over 30,000 initialised qubits/s, an array of over 3,000 atoms maintained for more than 2 hours (against a ~60 s trap lifetime) with stored qubits kept coherent while neighbours are replaced — operation in principle indefinite. *Nature 646, 1075 (2025); arXiv:2506.20660; verified 2026-07-17*
+
+- **arXiv '24** — Cryogenic neutral-atom platform, arXiv:2412.09780 (2024). A cryogenic tweezer system reporting a trap lifetime of about 3,000 seconds and a measured loss of 1.1(1)x10^-4 per cooling pulse; source for the trap-heating and re-cooling mechanism figures. *arXiv:2412.09780; verified 2026-07-17*
+
+- **arXiv '26** — Neutral-atom platform, arXiv:2607.12988 (posted 2026-07-14). Reports a roughly 2-hour trap lifetime, the current cryogenic single-atom lifetime record cited here. *arXiv:2607.12988; verified 2026-07-17*
+
+- **QST '26** — Ytterbium tweezer imaging study, IOP Quantum Sci. Technol. (2026), DOI 10.1088/2058-9565/adf7cf. Measures about 1.5% atom loss per image in a ytterbium setup, roughly 0.9 percentage points of it from off-resonant scattering and photoionization — the high end of the two-order-of-magnitude imaging-loss span. *Quantum Sci. Technol., 10.1088/2058-9565/adf7cf; verified 2026-07-17*
+
+- **Nature '23** — Ma, Burgers, Kolkowitz, Puri, Thompson et al., Nature 622, 279 (2023). Metastable-ytterbium two-qubit gates at 0.980(1) fidelity with mid-circuit erasure conversion, the detection itself disturbing surviving qubits below the 10^-5 level — the first hardware demonstration of erasure conversion. *Nature 622, 279 (2023); arXiv:2305.05493; verified 2026-07-17*
+
+- **Nat. Commun. '22** — Wu, Kolkowitz, Puri, Thompson, Nat. Commun. 13, 4657 (2022). Proposed erasure conversion: encode qubits so the dominant errors kick atoms into disjoint, observable states, turning otherwise-invisible errors into flagged (located) departures. *Nat. Commun. 13, 4657 (2022); verified 2026-07-17*
+
+- **Nat. Phys. '26** — Zhang et al., Nature Physics 22, 910-916 (2026). Logical qubits with erasure conversion: a [[4,2,2]] code too small to correct even one unlocated error nonetheless corrected errors during decoding, because erasure-location information did the work distance could not — improved logical performance with no postselection. *Nature Physics 22, 910-916 (2026); arXiv:2506.13724; verified 2026-07-17*
+
+- **PRX '26** — Baranes, Cain, Bonilla Ataides, Bluvstein, Sinclair, Vuletić, Zhou, Lukin, Phys. Rev. X 16, 011002 (2026). A general framework for atom loss in logical algorithms, including a delayed-erasure decoder for loss detected only later; fixes the loss-vs-erasure definition used here and shows gate-teleportation-heavy subroutines replace lost qubits as a side effect. *Phys. Rev. X 16, 011002 (published 2026-01-02); arXiv:2502.20558; verified 2026-07-17*
+
+- **Nature '26** — Bluvstein, Geim, Li et al. (Harvard / QuEra / MIT), Nature 649, 39-46 (2026). Architectural mechanisms of a universal fault-tolerant quantum computer: up to 448 neutral atoms achieving 2.14(13)x below-threshold error suppression 'by leveraging atom loss detection and machine learning decoding', with transversal gates, lattice surgery, and universal logic via transversal teleportation on [[15,1,3]] codes. *Nature 649, 39-46 (2026), online 2025-11-10; arXiv:2506.20661; DOI 10.1038/s41586-025-09848-5; abstract verified 2026-07-17*
+
+- **PRX Quantum '24** — Chow et al., PRX Quantum 5, 040343 (2024). Leakage-to-erasure conversion circuits for atomic species without a convenient metastable structure — extends erasure conversion beyond metastable ytterbium. *PRX Quantum 5, 040343 (2024); verified 2026-07-17*
+
+- **arXiv '26** — Atom-loss correction study, arXiv:2603.04156 (2026). Optimal-distance atom-loss correction via a Pauli-envelope construction — part of the growing loss-tolerant code/decoder literature. *arXiv:2603.04156; verified 2026-07-17*
+
+- **npj QI '26** — Kuo & Ouyang, npj Quantum Information 12, 75 (2026). Degenerate erasure decoding — a decoder result in the loss-tolerant literature cited here as a representative example. *npj Quantum Information 12, 75 (2026); verified 2026-07-17*
+
+- **arXiv '25** — Li, Bao, Peper, Li, Thompson (Princeton), arXiv:2506.15633 (2025). A demonstration of fast, continuous and coherent atom replacement in a qubit array — the Princeton parallel to the continuous-reload result, preprint. *arXiv:2506.15633 (preprint); verified 2026-07-17*
+
+- **arXiv '26** — Picard, Levine, Endres, Preskill, Huang, Bluvstein among authors, arXiv:2603.28627 (2026). A loss-managed reconfigurable-atom architecture claiming Shor's algorithm with as few as ~10,000 atomic qubits; cited as existence and claim only — the preprint is unrefereed and the number is the paper's own. *arXiv:2603.28627 (preprint, unrefereed); verified 2026-07-17*
