@@ -1,10 +1,10 @@
-An Open Dossier · **NNN**
+An Open Dossier · **QC-003**
 
-# @@TITLE@@
+# Dossier QC-003 (working title — topic to be set)
 
-*@@NAME@@ — @@AFFILIATION@@*
+*Irfan Ali-Khan — Independent Researcher*
 
-@@ABSTRACT@@. This dossier surveys @@FIELD@@: the live avenues, what each rests on, and where the open questions and forward bets sit. Every card in the landscape below carries an honest status label — established findings asserted, open questions and forecasts labeled as such. End it with: **Don't trust this paper — run it.**
+**Working shell.** Dossier QC-003 has just been spawned from the Open Dossier template; its topic, abstract, and avenue landscape will be set in the research phase that follows. Until then, the cards in the landscape below are template placeholders — but every one already wears an honest status label, which is the whole point of the format: a claim's label always tells you exactly how finished it is. **Don't trust this paper — run it.**
 
 ## Avenues
 

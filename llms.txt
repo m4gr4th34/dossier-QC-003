@@ -1,6 +1,6 @@
-# @@TITLE@@
+# Dossier QC-003 (working title — topic to be set)
 
-> @@ABSTRACT@@.
+> Working shell.
 
 ## Working draft
 
