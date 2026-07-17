@@ -100,7 +100,7 @@ The registry grows with each platform chapter: every chapter must deposit at lea
 
 Every factual claim in this dossier is verified against a primary source on a stated date before it is asserted; recalled numbers are inadmissible. Measured results and vendor projections are separated *within single sentences*. Verification failures are fixed in the paper, never in the tolerance. The dossier's own errors are findings: they are recorded in a public, append-only ledger with named errata, because the alternative — quiet correction — is the exact decay mechanism this dossier documents in others. The author reviews by consistency and reality checks on end results, not by re-derivation.
 
-**AI-use disclosure —** **[AUTHOR to write in their own words; required before this chapter seals]**. This slot renders visibly open by design: it is the author's to fill, and no draft fills it for them.
+**AI-use disclosure (the author's own words) —** Created with heavy AI use, and limited human oversight, to test the capabilities of contemporary state-of-the-art AI.
 
 *Next: Chapter 2 — Neutral atoms. The loss drill.*
 

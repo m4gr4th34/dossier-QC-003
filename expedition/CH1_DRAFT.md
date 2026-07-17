@@ -277,6 +277,6 @@ ledger with named errata, because the alternative — quiet correction — is th
 exact decay mechanism this dossier documents in others. The author reviews by
 consistency and reality checks on end results, not re-derivation.
 
-[AUTHOR: AI-use disclosure in the author's own words — required before seal.]
+AI-use disclosure (author's own words): Created with heavy AI use, and limited human oversight, to test the capabilities of contemporary state-of-the-art AI.
 
 *Next: Chapter 2 — Neutral atoms. The loss drill.*
