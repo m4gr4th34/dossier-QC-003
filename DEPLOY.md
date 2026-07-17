@@ -115,3 +115,11 @@ it into the chapter's `lineage.json` entry, then re-skin.
   altering any DOI. A released dossier still showing a placeholder DOI fails CI
   until you backfill — that red build is the honest signal, and it clears the
   moment the real DOI lands.
+
+## Transport of reissued files
+When the Strategy Room reissues a file, the transport copy carries a
+hash-stamped filename (e.g. NAME_v2_<first8ofsha256>.ext); only the repo
+path uses the canonical name. Same-name republish silently loses to
+browser cache or a "(1)" suffix; the filename hash moves the sha256 catch
+upstream to the download itself. (Lesson from the Cycle 1 ledger reissue,
+2026-07-17.)
