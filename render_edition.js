@@ -57,6 +57,11 @@ const sub = (hay, token, value, label) => {
   if (hay.indexOf(token) < 0) die('missing slot ' + label + ' (' + token + ')');
   return hay.replace(token, () => value);          // function form: no $-pattern interpretation
 };
+// Escape a plain-text frontmatter value for safe use inside the <head>: as <title> text
+// and as a double-quoted <meta content="..."> attribute. Frontmatter titles are plain text,
+// but a stray & or " (e.g. "Alice & Bob") would otherwise emit invalid HTML.
+const escHtml = s => String(s)
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 // Read source + skin, substitute every slot/mount, bake the machinery, and RETURN the
 // rendered index.html as a string. Writes nothing. Fail-loud on any missing piece.
@@ -70,7 +75,7 @@ function renderEdition(skinPath = SKIN, sourcePath = SOURCE, machinery = null, r
   if (!fm) die('source: missing <!--edition ... --> frontmatter header');
   const front = {};
   for (const line of fm[1].split('\n')) {
-    const m = line.match(/^(eyebrow|title|byline|active|chrome|self): ([\s\S]*)$/);
+    const m = line.match(/^(eyebrow|title|byline|active|chrome|self|description): ([\s\S]*)$/);
     if (m) front[m[1]] = m[2];
   }
   for (const k of ['eyebrow', 'title', 'byline']) {
@@ -141,6 +146,12 @@ function renderEdition(skinPath = SKIN, sourcePath = SOURCE, machinery = null, r
   out = sub(out, '{{eyebrow}}', front.eyebrow, 'eyebrow');
   out = sub(out, '{{title}}', front.title, 'title');
   out = sub(out, '{{byline}}', front.byline, 'byline');
+  // <head> metadata, per edition, from the frontmatter (was hardcoded template placeholders):
+  //   {{doc_title}}        <- this edition's title
+  //   {{meta_description}} <- an OPTIONAL `description:` frontmatter field, falling back to the title
+  // Both escaped for the <head> (plain text into <title> and a quoted <meta content="...">).
+  out = sub(out, '{{doc_title}}', escHtml(front.title), 'doc_title');
+  out = sub(out, '{{meta_description}}', escHtml(front.description || front.title), 'meta_description');
   out = sub(out, '{{body}}', body, 'body');
   // Landscape kicker/lede: optional source slots (mirror {{head_extra}}) so a chapter whose
   // apparatus is NOT a survey can label it honestly. Defaults = today's verbatim text, so every
