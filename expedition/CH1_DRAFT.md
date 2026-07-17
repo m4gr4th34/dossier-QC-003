@@ -240,25 +240,33 @@ Books about this field go stale the month they print, and their authors are
 never scored. This dossier's alternative: dated, falsifiable, mechanically
 resolving public bets, registered before the platform chapters run, scored on
 their dates whether anyone is watching or not. Three inaugural signposts are
-drafted below. **Percentages are the author's alone** — the AI drafts
-signposts and resolution mechanisms, never the number [AUTHOR: set percentages
-before this chapter seals; any signpost may be struck or reworded].
+drafted below. **The percentages are the author's to own and override.** The AI
+drafts the signposts and resolution mechanisms; on 2026-07-17 the author
+delegated the drafting of the three percentages below to the AI as well,
+retaining full authority to override any number or strike any signpost.
 
 **B1 — The compute gap closes first where storage won.** *By 2027-12-31, at
 least one hardware demonstration (not simulation) of a two-qubit logical gate
-on a qLDPC code with encoding rate ≥ 1/4 is public.* Resolution: an arXiv
+on a qLDPC code with encoding rate ≥ 1/2 is public.* Resolution: an arXiv
 preprint or journal paper reporting hardware data meeting the stated terms;
-resolves TRUE/FALSE on the date. Author's probability: [AUTHOR: __%].
+resolves TRUE/FALSE on the date. Author's probability: ~25%. AI-drafted
+estimate (author-delegated 2026-07-17); the author may override any number.
+Registration note: an earlier draft set this threshold at rate ≥ 1/4; a
+reported January 2026 result (error-corrected gates on high-rate [[16,6,4]]
+codes, REPORTED, unverified) likely already meets that bar, so the threshold
+was raised to the genuinely open regime before registration.
 
 **B2 — Platform of that first demonstration.** *Conditional on B1 resolving
 TRUE: the platform is neutral atoms.* Resolution: the platform named in the
-resolving paper. Author's probability: [AUTHOR: __%].
+resolving paper. Author's probability: ~45%. AI-drafted estimate
+(author-delegated 2026-07-17); the author may override any number.
 
 **B3 — A vendor roadmap, scored rather than repeated.** *By 2026-12-31, IBM
 publicly reports its Kookaburra system operating as a qLDPC memory with a
 logical processing unit, per its stated 2026 roadmap.* Resolution: IBM public
 technical announcement plus at least one independent secondary report.
-Author's probability: [AUTHOR: __%].
+Author's probability: ~60%. AI-drafted estimate (author-delegated 2026-07-17);
+the author may override any number.
 
 The registry grows with each platform chapter: every chapter must deposit at
 least one new dated bet at its close. Resolved bets are scored in public,
