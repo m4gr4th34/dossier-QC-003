@@ -1,0 +1,17 @@
+PREREG-1 GATES — canonical machine, 2026-07-17
+env: python 3.12.13, stim 1.16.0, pymatching 2.4.0, numpy 2.5.1
+
+GATE 1 (equivalence): reference cell d=3 rounds=3 basis=z p=3e-3 share=0.5 T3
+  slow: {"d": 3, "rounds": 3, "basis": "z", "p_tot": 0.003, "share": 0.5, "treatment": "T3", "shots": 20000, "n_lossy_shots": 4490, "n_loss_locations": 171, "fails": 44, "ler": 0.0022, "ci95": 0.0006493430008862804, "seed": 101, "versions": {"stim": "1.16.0", "pymatching": "2.4.0", "numpy": "2.5.1", "python": "3.12.13"}}
+  fast: {"d": 3, "rounds": 3, "basis": "z", "p_tot": 0.003, "share": 0.5, "treatment": "T3", "shots": 200000, "n_lossy_shots": 45285, "n_multi_shots": 5482, "n_loss_locations": 171, "fails": 461, "ler": 0.002305, "ci95": 0.0002101722803221205, "seed": 202, "path": "fast", "versions": {"stim": "1.16.0", "pymatching": "2.4.0", "numpy": "2.5.1", "python": "3.12.13"}}
+  slow 95% CI [0.00155066, 0.00284934]  fast 95% CI [0.00209483, 0.00251517]  overlap=True
+  GATE 1 VERDICT: PASS
+
+GATE 2 (control): d=3 rounds=3 basis=z p=1e-3 share=0.0, same seed=303, T1/T2/T3
+  T1: {"d": 3, "rounds": 3, "basis": "z", "p_tot": 0.001, "share": 0.0, "treatment": "T1", "shots": 200000, "n_lossy_shots": 0, "n_multi_shots": 0, "n_loss_locations": 171, "fails": 141, "ler": 0.000705, "ci95": 0.00011632752530592234, "seed": 303, "path": "fast", "versions": {"stim": "1.16.0", "pymatching": "2.4.0", "numpy": "2.5.1", "python": "3.12.13"}}
+  T2: {"d": 3, "rounds": 3, "basis": "z", "p_tot": 0.001, "share": 0.0, "treatment": "T2", "shots": 200000, "n_lossy_shots": 0, "n_multi_shots": 0, "n_loss_locations": 171, "fails": 141, "ler": 0.000705, "ci95": 0.00011632752530592234, "seed": 303, "path": "fast", "versions": {"stim": "1.16.0", "pymatching": "2.4.0", "numpy": "2.5.1", "python": "3.12.13"}}
+  T3: {"d": 3, "rounds": 3, "basis": "z", "p_tot": 0.001, "share": 0.0, "treatment": "T3", "shots": 200000, "n_lossy_shots": 0, "n_multi_shots": 0, "n_loss_locations": 171, "fails": 141, "ler": 0.000705, "ci95": 0.00011632752530592234, "seed": 303, "path": "fast", "versions": {"stim": "1.16.0", "pymatching": "2.4.0", "numpy": "2.5.1", "python": "3.12.13"}}
+  LERs: T1=0.000705 T2=0.000705 T3=0.000705  identical=True
+  GATE 2 VERDICT: PASS
+
+GATES SUMMARY: GATE1=PASS GATE2=PASS

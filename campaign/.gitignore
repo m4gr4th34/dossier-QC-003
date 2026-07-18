@@ -1,0 +1,6 @@
+# Local-only campaign run artifacts — never committed.
+# Committed artifacts are the code (harness.py, runner.py), gates.log, and results.jsonl.
+.venv/
+__pycache__/
+*.pyc
+runner.out

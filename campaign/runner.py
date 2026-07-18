@@ -16,11 +16,11 @@ CELLS = []
 for d in (3, 5):
     bases = ("z", "x") if d == 3 else ("z",)  # d=5 x-basis: cap-budget extra, see ADDENDUM A1.5
     for basis in bases:
-        for share in (0.0, 0.25, 0.5, 0.75):
+        for share in ((0.75, 0.5, 0.25, 0.0) if d == 5 else (0.0, 0.25, 0.5, 0.75)):
             for t in ("T1", "T2", "T3"):
                 CELLS.append((d, basis, share, t))
 # d=5 x-basis appended last, run if budget allows:
-for share in (0.0, 0.25, 0.5, 0.75):
+for share in (0.75, 0.5, 0.25, 0.0):
     for t in ("T1", "T2", "T3"):
         CELLS.append((5, "x", share, t))
 
