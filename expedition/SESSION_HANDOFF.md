@@ -1,35 +1,36 @@
 # QC003 — SESSION HANDOFF (refreshed at close of each session)
 
-## Session 6 closed 2026-08-24 at 12f7e65
-Chapter 5 (photonics, the loss drill worse) drafted, primary-verified
-(3/3 CITEs spot-checked), and integrated live. Headline: the platform
-traded a zoo of errors for one (loss), fully instrumented as heralded
-erasure, and bet the factory on driving a single scalar (decibels) down —
-but its record fidelities are conditional-on-photon-detection records
-(99.98/99.22/99.72%, "not accounting for loss"), decibels compound
-exponentially in path length, and it is the only platform with zero
-below-threshold logical qubits. The constraint is a two-layer race:
-component layer winning (CITE), GKP-quality layer losing/above-threshold
-(REPORTED). Bet B7 deposited (~35%, 2028-12-31: on-chip optical GKP states
-the publishing team itself calls at/below its architecture's FT threshold).
-QCF8 (map-dossier optical-endpoint conviction) checked, deliberately NOT
-scored here (graded in its own registry). Pre-commit catch: the draft's
-Omega caveat was a version divergence (published Nature abstract carries
-"conditional on photon detection and not accounting for loss"; arXiv v1
-carries only "not accounting for loss") — executor flagged v2's joint
-attribution, v3 quotes each version separately with its own CITE; verified
-via arXiv + PMC mirror. Ledger prefix CPH (CP taken by Ch2 campaign).
+## Session 7 closed 2026-08-24 at 4001e20
+Chapter 6 (silicon spin, the yield drill) drafted, primary-verified (3/3
+CITEs spot-checked), and integrated live. Headline: the platform whose
+factory already exists (CMOS) — coherence to seconds, unit cells above 99%
+fidelity sampled across a wafer — but whose largest foundry array is eight
+qubits. The constraint is device factory vs array factory: yield falls off
+as roughly y to the power N, and per-site excellence has never been
+survived all at once. 2026 bolted the first QEC rungs on: stabilizer-based
+error DETECTION (Nat. Electron.) and universal logical operations on a
+[[4,2,2]] code (Nat. Nanotech.) — but error-CORRECTED / beyond-breakeven
+logical qubits still do not exist here (ledger CSIN1 updates the Ch1
+inheritance). Strategically large finding: silicon's donor errors measured
+strongly biased with no state leakage — the cheapest noise to correct, the
+PREREG-1 what-not-how lesson recurring. Bet B8 deposited (~30%, 2028-12-31:
+repeated stabilizer QEC, >=2 rounds, on a 300mm-fabbed device). Ledger
+prefix CSI (distinct from Ch3 CS; no collision).
 
-## Session 7 agenda — Chapter 6: silicon spin, the yield drill
-Same drill shape: mechanism -> verified numbers -> scaling law -> fix
-stack -> poke -> >=1 new bet -> same-session integration. Open by
-establishing the real date (SR-6 rule) before drafting. AUTHOR ITEMS STILL
-OPEN: Ch3, Ch4 AND Ch5 test-reader verdicts, strikes if any; B5, B6, B7
-overrides if the ~35%/~30%/~35% misfit.
+## Session 8 agenda — Chapter 7: the engineered-qubit bets (topological + cat), the existence drill
+The serial's LAST platform chapter. Same drill shape: mechanism ->
+verified numbers -> scaling law -> fix stack -> poke -> >=1 new bet ->
+same-session integration. Open by establishing the real date (SR-6 rule)
+before drafting. Special care: topological rests on a disputed physics
+claim (Majorana existence) and cat on single-mode-suppression
+extrapolation — the CITE/REPORTED and OPEN/EXPLORATORY-CONJECTURE splits
+will be load-bearing. AUTHOR ITEMS STILL OPEN: Ch3, Ch4, Ch5 AND Ch6
+test-reader verdicts, strikes if any; B5-B8 overrides if the numbers
+misfit.
 
 ## Standing obligations
-- B3 scores 2026-12-31; B1/B2/B4 score 2027-12-31; B5 and B6 score
-  2028-06-30; B7 scores 2028-12-31.
+- B3 scores 2026-12-31; B1/B2/B4 score 2027-12-31; B5/B6 score 2028-06-30;
+  B7/B8 score 2028-12-31.
 - Cycle 2 scouting owes >= 1 wildcard arc.
 - PREREG-2 (decomposition arm) deferred, not dead.
 - Residual cosmetics: dossier.source.html "(working title)"; Ch1 sec 05
