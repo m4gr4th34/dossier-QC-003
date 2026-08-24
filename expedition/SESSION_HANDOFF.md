@@ -12,7 +12,7 @@ depolarizing to loss collapses LER ~100x under every treatment, both
 bases. Chain: a676f85 -> f60e953 -> 0c32aef -> bde5a86 -> fb2b65d ->
 d55194a -> d61f27c.
 
-## Session 4 (opened 2026-07-19): author chose B — Chapter 3,
+## Session 4 (opened 2026-08-24): author chose B — Chapter 3,
 superconducting wiring drill. PREREG-2 (decomposition arm) deferred, not
 dead. First block: Ch3 draft + edition integration of PREREG-1 results.
 

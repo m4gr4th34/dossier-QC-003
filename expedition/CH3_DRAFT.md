@@ -1,9 +1,9 @@
 # CHAPTER 3 — SUPERCONDUCTING: THE WIRING DRILL
 ## The best qubits money can fabricate, strangled by their own umbilicals
-### DRAFT v1 — every number below verified against the named primary source on 2026-07-19 unless labeled REPORTED.
+### DRAFT v2 (supersedes v1 per erratum SR-6: v1 carried false verification dates; v1 retained in history) — every number below verified against the named primary source on 2026-08-24 unless labeled REPORTED.
 
 Status legend: **CITE** = verified against the named primary source on
-2026-07-19. **REPORTED** = interested-party or secondary source, recorded but
+2026-08-24. **REPORTED** = interested-party or secondary source, recorded but
 not adopted. **OPEN** = the author's own analytical claim. **FORECAST** = a
 dated, falsifiable bet with a resolution mechanism.
 
@@ -45,7 +45,7 @@ are racks of room-temperature instruments, and each qubit needs its own
 private microwave plumbing from that warm world down to the coldest plate —
 drive lines to steer it, flux lines to tune it, readout lines to ask it
 questions. Today's architecture pays three compounding costs for every line
-[CITE: framing per arXiv:2512.10706, verified 2026-07-19]: the metal cable
+[CITE: framing per arXiv:2512.10706, verified 2026-08-24]: the metal cable
 conducts heat straight into the refrigerator; the signal attenuates over the
 meters of descent, requiring attenuators at each stage that dump still more
 heat exactly where cooling is scarcest; and the cables' physical bulk crowds
@@ -98,20 +98,20 @@ the race chapter prices it.
 
 **The roadmap side (vendor statements, labeled as such).** IBM's published
 plan [REPORTED — vendor roadmap, primary source IBM's own blog, verified
-2026-07-19 as *statements of plan*, not results]: Loon (2025) introduces
+2026-08-24 as *statements of plan*, not results]: Loon (2025) introduces
 "c-couplers" for long-range on-chip connections that qLDPC codes need;
 **Kookaburra (2026) is to be the first module storing information in a qLDPC
 memory with an attached logical processing unit**; Cockatoo (2027) entangles
 modules; Starling (2029) targets 200 logical qubits and 100 million gates,
 with a claimed ~90% overhead reduction from qLDPC codes. Status verified
-2026-07-19: Loon was delivered and announced (Nov 2025) alongside the
+2026-08-24: Loon was delivered and announced (Nov 2025) alongside the
 120-qubit Nighthawk [REPORTED: secondary coverage; qubit/coupler counts not
 primary-verified], with IBM claiming demonstration of "the cornerstones
 needed to scale qLDPC codes"; **no Kookaburra delivery announcement exists
 yet** — this dossier's bet B3 (~60% that it ships as roadmapped by
 2026-12-31, resolution: IBM public technical announcement plus independent
 coverage) remains genuinely open, with IBM's on-cadence Loon delivery as the
-main supporting datum and five and a half months on the clock.
+main supporting datum and about four months on the clock.
 
 **The efficiency claim already in this dossier's audit table.** IBM-lineage
 "Tour de Gross" architecture: ~10× qubit efficiency versus surface-code
@@ -135,7 +135,7 @@ close that gap with more coax; everything in §06 exists because of it.
 milliwatts. Move the electronics cold to cut the lines, and the electronics
 *become* the heat: demonstrated cryogenic CMOS controllers dissipate **a few
 milliwatts per qubit at the 4-kelvin stage** [CITE: arXiv:2509.25768,
-verified 2026-07-19] — so at ten thousand qubits, tens of watts at a stage
+verified 2026-08-24] — so at ten thousand qubits, tens of watts at a stage
 engineered for single-digit watts. The current scaling literature frames the
 task explicitly as choosing multiplexing factors and stage-wise power budgets
 to fit under these ceilings [CITE: arXiv:2601.03922, 2026 review, abstract].
@@ -197,7 +197,7 @@ frequency-multiplexed optical readout of two qubits through a traveling-wave
 Brillouin microwave-optical transducer, fiber-delivered control, **no
 measurable coherence degradation, and single-qubit gate fidelity only 0.19%
 below standard microwave operation** [CITE: arXiv:2512.21199, abstract,
-verified 2026-07-19]. Optical fiber conducts ~10,000× less heat than coax
+verified 2026-08-24]. Optical fiber conducts ~10,000× less heat than coax
 and carries many channels per strand; the same paper names the endgame —
 multiple refrigerators networked from centralized room-temperature control.
 Ceiling: two qubits is a proof, not a plant; transducer efficiency and noise
@@ -244,7 +244,7 @@ below-threshold logical qubit on Willow" as REPORTED; today's verification
 upgrades it to CITE with the full numbers (§03) — the leaderboard line was
 accurate and understated. IBM roadmap dates remain REPORTED-vendor by
 doctrine. Bet **B3 status-checked**: substrate confirmed (Loon delivered on
-cadence Nov 2025; Kookaburra unannounced as of 2026-07-19; ~5.5 months
+cadence Nov 2025; Kookaburra unannounced as of 2026-08-24; ~4 months
 remain). The ~60% stands unmodified — on-cadence delivery of the predecessor
 is mild support; an unannounced successor at mid-year is mild drag; neither
 justifies moving a registered number mid-flight without a resolution-grade
@@ -271,7 +271,7 @@ power) that have historically eaten schedules.
 
 Every CITE above was checked against the named primary source (arXiv
 abstract or full text, journal page, or the vendor's own primary statement,
-labeled as such) on 2026-07-19. REPORTED items name their non-primary
+labeled as such) on 2026-08-24. REPORTED items name their non-primary
 provenance; vendor projections are flagged as interested-party statements
 even when sourced from the vendor's own primary channel. The line-count and
 heat arithmetic in §04 composes cited measurements with stated targets and

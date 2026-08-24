@@ -243,6 +243,9 @@ verification script, and its claim ledger all live here.
     rule "reset provenance.version_doi to '' before each release" so a freeze
     never seals a stale DOI (this bit -002 at its v5.0.0 seal and required an
     erratum across the frozen snapshot).
+  - Timekeeping (SR-6): every session opens by establishing the real date
+    from the system clock/git before drafting; all prose dates derive from it;
+    dates are never carried forward from narrative context.
 
 ## Geography (three layers)
 1. **GitHub = the truth.** The synced repo is the canonical state.
