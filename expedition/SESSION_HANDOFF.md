@@ -47,6 +47,21 @@ plausible to partially corroborated, which weakens this dossier's own
 exhibit and is reported for that reason. Verified inputs for the ruler are
 committed as expedition/RECOST_INPUTS.md.
 
+## Session 9, part 1b — the lockstep hole, found and closed
+Code's post-merge sweep found a stale copy of the SR-7 claim in
+expedition/CH1_DRAFT.md, and a second in SCOUTING_LEDGER_ADDENDUM_1.md: the
+retracted multiplier survived in working drafts because check_placeholders.py
+scans publication surfaces only, and no gate covered drafts. The doctrine
+already required lockstep; nothing enforced it. Both copies corrected in
+place and marked, and a new gate closes the hole:
+**verification/check_retracted.py** + **retracted_claims.json**, wired into CI
+as check-retracted.yml, with tests in check_retracted.test.py. Design note
+worth keeping: it uses per-file occurrence BUDGETS, not an allowlist, because
+an allowlist over the manuscript would permit the false claim to be
+re-introduced into the manuscript unnoticed — the exact failure being
+guarded. Raising a budget is allowed only when deliberately adding to the
+errata record, in the same commit. The gate is not gated on release state.
+
 ## Session 9, part 2 agenda — Chapter 8: THE RECOST
 The finale the author originally asked for, and a different shape from the
 six platform drills. Re-express the field's headline multipliers (the six

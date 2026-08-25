@@ -279,6 +279,15 @@ verification script, and its claim ledger all live here.
   - paper/            — optional LaTeX manuscript scaffold (on-demand legacy export; not shipped)
   - verification/     — verify script, audits, red-team report, format spec (verify_numbers.py takes an optional `--avenues <path>` override; no flag = live root, byte-unchanged). avenues.json is sealed into each frozen chapter, and the chapter's console verdict is ALSO sealed as chapters/<tag>/verdict.json (derived at freeze from the chapter's own sealed index.md, backfilled by verification/seal_verdicts.py). The back-catalog re-skin READS verdict.json — it never re-runs the verifier — so chapter-specific checks added to the global verify_numbers.py are safe: an old chapter keeps its own sealed check-set forever, never a later chapter's.
   - figures/          — vendored living-figures runtime (interactive SVG via data-figure)
+  - verification/check_retracted.py + retracted_claims.json — retracted-claim sentinel:
+    text this dossier has publicly retracted may appear ONLY inside the errata that
+    retract it, and only as many times as the registry's per-file budget records. Any
+    occurrence elsewhere, or any increase in a budgeted file, fails the gate. It is NOT
+    gated on release state — a placeholder may be drafty, a retracted claim is wrong at
+    every stage, in every file, working drafts included. Budgets are raised only when
+    deliberately adding to the errata record, in the same commit; never to silence a
+    stale copy. Added after SR-7, whose stale copy survived in a working draft because
+    check_placeholders.py scans publication surfaces only.
   - claim_ledger.csv  — every claim, typed, with honest status
   - BOUNDARY.md       — the content/skin/machinery boundary spec (live-edition arc; the source/skin/render partition)
 - Living figures (interactive SVG): authored as a `data-figure` JSON spec that

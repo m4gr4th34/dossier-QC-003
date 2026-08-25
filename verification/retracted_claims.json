@@ -1,0 +1,40 @@
+{
+  "_comment": "Registry for verification/check_retracted.py. Each entry is text this dossier has publicly RETRACTED. 'budget' records how many times the pattern may legitimately appear per file — which is only ever inside the errata that retract it, since you cannot record 'the paper does not say X' without writing X. Any occurrence in an unlisted file fails; so does any increase in a listed one. Raise a budget only when deliberately adding to the errata record, in the same commit. Never raise one to silence a stale copy: fix the copy.",
+  "retracted": [
+    {
+      "id": "SR7-multiplier",
+      "erratum": "SR-7",
+      "retracted_on": "2026-08-25",
+      "note": "The 20-40x space-time multiplier attributed to arXiv:2606.25011. No such figure exists in the paper (LaTeX source and rendered PDF, mechanical search).",
+      "pattern": "20\\s*[-\\u2013]\\s*40\\s*[x\\u00d7]",
+      "budget": {
+        "claim_ledger.csv": 2,
+        "editions/index.source.html": 1,
+        "index.html": 1,
+        "index.md": 1,
+        "expedition/SCOUTING_LEDGER.md": 3,
+        "expedition/SCOUTING_LEDGER_ADDENDUM_1.md": 1,
+        "expedition/SESSION_HANDOFF.md": 1,
+        "expedition/CH1_DRAFT.md": 1,
+        "expedition/RECOST_INPUTS.md": 1
+      }
+    },
+    {
+      "id": "SR7-baseline",
+      "erratum": "SR-7",
+      "retracted_on": "2026-08-25",
+      "note": "The 'previous best-in-class STAR architecture' baseline attributed to arXiv:2606.25011. The paper contains no 'best-in-class', 'previous best' or 'state-of-the-art' phrasing at all.",
+      "pattern": "best[-\\s]in[-\\s]class",
+      "budget": {
+        "claim_ledger.csv": 2,
+        "editions/index.source.html": 1,
+        "index.html": 1,
+        "index.md": 1,
+        "expedition/SCOUTING_LEDGER.md": 3,
+        "expedition/SESSION_HANDOFF.md": 1,
+        "expedition/CH1_DRAFT.md": 1,
+        "expedition/RECOST_INPUTS.md": 1
+      }
+    }
+  ]
+}
