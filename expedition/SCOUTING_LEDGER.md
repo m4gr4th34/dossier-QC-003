@@ -120,6 +120,63 @@ thesis is "claims decay when nobody rechecks them" has no standing to hide its o
   channel). The campaign is re-specified in arc E around model *fidelity* rather
   than model *presence* — a sharper question that survives contact with the paper.
 
+### Errata, second pass — 2026-08-25 (Chapter 8 pre-work)
+
+Arc E's first act was to re-verify its own six-multiplier table before recosting
+it. Two findings, recorded here for the same reason SR-1 through SR-5 are.
+
+- **SR-7 — a false CITE reached the live edition.** The table above, ledger row
+  CM4, Chapter 1 §03 and the `mstar` citation card all asserted that the high-rate
+  STAR paper reports a **20–40x space-time cost reduction** against **"the previous
+  best-in-class STAR architecture"**. Mechanical full-text search of arXiv:2606.25011v1
+  — LaTeX source and rendered PDF, cross-checked — finds **no 20x, 40x or 20–40x
+  multiplier anywhere** (the sole "40x" in the source is inside a commented-out line
+  that never compiles, and describes a different comparison), and **no "best-in-class",
+  "previous best" or "state-of-the-art" phrasing anywhere**. The paper's actual
+  headline is a **~5.5x physical-qubit reduction relative to "a surface code STAR
+  baseline" at comparable speed** — 2,240 physical qubits and ~200 s per shot for an
+  8x8 transverse-field Ising simulation; ~6,300 qubits for 8x8 Fermi-Hubbard. Both
+  the multiplier and its baseline were wrong, and the recorded grade — "CITE, abstract
+  only" — was itself the tell: the complete abstract does not contain the figure, so
+  an abstract-grade check could not have produced it. **This is the first of this
+  dossier's errors to reach a sealed, published surface rather than being caught at
+  the pre-commit gate**, and it was live inside the paragraph arguing that unrechecked
+  multipliers decay. Corrected in place 2026-08-25.
+- **SR-8 — SR-1 recurred, five weeks later, about the same number, and was stopped by
+  a machine rather than by memory.** While running the same pass, the Strategy Room
+  again concluded that the **~250x** time-savings figure was unsupported by
+  arXiv:2509.18294, on the strength of a converted-HTML read of the paper, and drafted
+  a correction. **That accusation was false, exactly as in SR-1.** Full-text search of
+  the LaTeX source, cross-checked against the rendered PDF, finds the claim present
+  verbatim, once, in the results section: *"Surface-code-based transversal STAR
+  architectures achieve ~250x time savings and 2x space savings over a fixed-connectivity,
+  fully fault-tolerant scheme."* Both halves sit in a single clause; the figure is read
+  off the paper's own resource table, whose column is headed "fixed connectivity /
+  fully fault-tolerant". No manuscript change resulted.
+  **What SR-8 teaches that SR-1 did not.** SR-1 already named the failure and its
+  remedy, in writing, in this file. That did not prevent the recurrence. What stopped
+  it was a mechanical gate run over the authoritative corpus. The operative lesson is
+  therefore not "remember SR-1" but a tool-grade rule, adopted here as standing
+  doctrine:
+  > **An absence claim requires exhaustive search over the authoritative corpus —
+  > LaTeX source or rendered PDF — never a converted-HTML read, a search snippet, an
+  > abstract, or a memory. A presence claim may be established by any reliable read.
+  > Absence is the strictly harder claim and needs the stronger instrument.**
+  Corollary, now applied: SR-7's absence finding is admissible because it was
+  established this way; the same standard retroactively covers Exhibit 0's absence
+  claim, which should be re-confirmed under it at the next verification pass.
+- **Not an erratum, recorded to prevent a future one.** CM1's journal reference
+  **PRX Quantum 7, 020343 (2026)** is correct; the paper published 2026-05-29. Its DOI
+  is **10.1103/j2fw-ccmy**, not the legacy `10.1103/PRXQuantum.7.020343` form, which
+  does not resolve. The resolvable DOI is now recorded in the citation card.
+- **Exhibit 0's mundane explanation is now partially corroborated, which weakens this
+  dossier's own exhibit.** The high-rate STAR paper reports **2,240 physical qubits**
+  for its 8x8 transverse-field Ising headline — inside the "roughly 1,500 to 3,000"
+  band that trade coverage attached to the *transversal* STAR paper. Its other headline
+  figure, ~6,300 qubits, is not. The conflation explanation therefore moves from
+  "plausible, not confirmed" to "partially corroborated". The observable still stands:
+  a resource figure circulated attached to a paper that does not contain it.
+
 **What this episode is.** Four of the five errata are the arc E pathology committed
 by arc E's own author: a multiplier repeated without recosting, a date propagated
 from a press release, a scaling figure quoted past its stated scope, a metric
@@ -244,7 +301,7 @@ and no paper claims they are.**
 | ~250x time savings + 2x space savings | time (and space) | "a fixed-connectivity, fully fault-tolerant scheme" | **CITE, full text verified** — transversal STAR, arXiv:2509.18294, journal-ref PRX Quantum **7, 020343 (2026)** |
 | 752x speedup; >10x footprint | end-to-end runtime; qubit count | "NA-only baselines" (speedup); "SC-only systems" (footprint) — two different baselines in one abstract | CITE, abstract verified — arXiv:2601.10144 |
 | 138x | physical qubit requirement | "under detailed accounting" | CITE, abstract only — arXiv:2604.06319 |
-| 20–40x | space-time cost (qubits x cycles) | "the previous best-in-class STAR architecture" | CITE, abstract only — arXiv:2606.25011 |
+| ~5.5x | physical qubit count | "a surface code STAR baseline" at comparable speed | CITE, full text + rendered PDF — arXiv:2606.25011v1 **(corrected 2026-08-25; the row previously read "20–40x space-time cost" against "the previous best-in-class STAR architecture", a figure and a baseline the paper does not contain — see erratum SR-7)** |
 | ~10x | qubit efficiency | "equivalent surface-code architectures" | CITE, abstract only — Tour de Gross, arXiv:2506.03094 |
 | ~8x | overhead | surface code "at equal logical error" | CITE, abstract only — routing codes, arXiv:2606.25330 |
 

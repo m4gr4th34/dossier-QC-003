@@ -26,7 +26,28 @@ code distances) deposited. Ledger prefixes CT / CC / CTN (no collisions).
 Ch1's constraint choice for this pair - existence and extrapolation -
 survived its chapter unchanged (elaborated, not corrected).
 
-## Session 9 agenda — Chapter 8: THE RECOST
+## Session 9, part 1, closed 2026-08-25 — the recost audited its own inputs first
+Arc E's first act was to re-verify the six-multiplier table before recosting
+it. It never reached the arithmetic. Two errata, both now logged and
+corrected in place: **SR-7**, a false CITE that had reached the live edition
+(the "20-40x space-time cost vs the previous best-in-class STAR
+architecture" row; mechanical full-text and rendered-PDF search of
+arXiv:2606.25011v1 finds neither figure nor baseline; actual headline is
+~5.5x physical qubits vs a surface code STAR baseline) - the first dossier
+error NOT caught at the pre-commit gate; and **SR-8**, SR-1 recurring five
+weeks later about the same ~250x figure, the Strategy Room again judging it
+unsupported on a converted-HTML read, the figure found present verbatim by
+mechanical search, no manuscript change. SR-8's standing rule is now
+doctrine: an absence claim requires exhaustive search over the authoritative
+corpus (LaTeX source or rendered PDF); a presence claim may be established by
+any reliable read. CM1/CM2/CM3 survive re-verification; CM5 and CM6 carried
+precision defects (an inverted quantity and paraphrases inside quotation
+marks) and are corrected. Exhibit 0's mundane explanation moved from
+plausible to partially corroborated, which weakens this dossier's own
+exhibit and is reported for that reason. Verified inputs for the ruler are
+committed as expedition/RECOST_INPUTS.md.
+
+## Session 9, part 2 agenda — Chapter 8: THE RECOST
 The finale the author originally asked for, and a different shape from the
 six platform drills. Re-express the field's headline multipliers (the six
 CITE-verified claims in Ch1 sec 03) on ONE stated baseline with ONE stated
@@ -60,6 +81,9 @@ B5-B10 overrides if the numbers misfit.
 - B3 scores 2026-12-31; B1/B2/B4 score 2027-12-31; B5/B6 score 2028-06-30;
   B7/B8/B10 score 2028-12-31; B9 scores 2029-06-30.
 - Cycle 2 scouting owes >= 1 wildcard arc.
+- Exhibit 0's absence claim (no 1,500-3,000 figure in arXiv:2509.18294)
+  predates the SR-8 rule and should be re-confirmed by mechanical full-text
+  search at the next verification pass.
 - PREREG-2 (decomposition arm) deferred, not dead.
 - Residual cosmetics: dossier.source.html "(working title)"; Ch1 sec 05
   intro wording open to author revision; Ch4 sec 04 opens by naming
