@@ -47,6 +47,12 @@ REGISTRY = os.path.join(ROOT, "verification", "retracted_claims.json")
 SCAN_EXT = {".md", ".html", ".csv", ".json", ".txt", ".js", ".py", ".yml", ".yaml"}
 SKIP_DIRS = {"node_modules", "katex", "__pycache__"}
 
+# Dot-directories are skipped by default — .git alone would swamp the walk — but a
+# gate whose premise is "every file, every stage" cannot afford a silent blind spot,
+# and workflow files are authored text like any other. .github is therefore scanned
+# explicitly. Any future dot-directory holding authored prose belongs in this set.
+DOT_SCAN = {".github"}
+
 # This gate's own machinery is not scanned, and the exemption is deliberately two
 # named files rather than a glob. Both MUST quote the retracted patterns in order
 # to work at all: the registry defines them, and the test file feeds them to the
@@ -62,7 +68,8 @@ SELF = {
 def iter_files():
     for dirpath, dirnames, filenames in os.walk(ROOT):
         dirnames[:] = [d for d in sorted(dirnames)
-                       if d not in SKIP_DIRS and not d.startswith(".")]
+                       if d not in SKIP_DIRS
+                       and (not d.startswith(".") or d in DOT_SCAN)]
         for name in sorted(filenames):
             if os.path.splitext(name)[1].lower() not in SCAN_EXT:
                 continue

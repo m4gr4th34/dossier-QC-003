@@ -62,6 +62,12 @@ re-introduced into the manuscript unnoticed — the exact failure being
 guarded. Raising a budget is allowed only when deliberately adding to the
 errata record, in the same commit. The gate is not gated on release state.
 
+Follow-up: Code's post-merge review noted the sentinel skipped every
+dot-directory, leaving .github outside a gate whose premise is "every file,
+every stage". Closed — .github is now scanned explicitly (.git still is not),
+with tests asserting both, and the blind spot demonstrated shut by planting
+the retracted string in a workflow file.
+
 ## Session 9, part 2 agenda — Chapter 8: THE RECOST
 The finale the author originally asked for, and a different shape from the
 six platform drills. Re-express the field's headline multipliers (the six

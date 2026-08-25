@@ -73,6 +73,15 @@ with tempfile.TemporaryDirectory() as tmp:
     v, _ = cr.scan([word], files=[stale])
     check("word pattern matches case-insensitively", len(v) == 1)
 
+# Scan scope: .github is walked (workflow files are authored text), .git is not.
+scanned = {rel for rel, _ in cr.iter_files()}
+check("workflow files are inside the scan",
+      any(r.startswith(".github/") for r in scanned))
+check("the git directory is outside the scan",
+      not any(r.startswith(".git/") for r in scanned))
+check("this gate's own machinery is exempt by name",
+      not (scanned & cr.SELF) and len(cr.SELF) == 2)
+
 # The live registry must parse and every entry must be well formed.
 try:
     entries = cr.load_registry()
