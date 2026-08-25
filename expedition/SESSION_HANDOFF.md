@@ -30,6 +30,30 @@ megaquop clock), B13 (~35%, conditional platform = NA). Ledger prefix CA +
 CB11-13 + CAN1; sentinel budgets raised for Ch8's sec 02 erratum
 restatement (the deliberate-friction path, documented in place).
 
+## Session 9, part 3 — every chapter gets its condensing figure
+Eight living figures added, one per chapter, each condensing the chapter's
+point into a single diagram: Ch1 six staggered-origin arrows (the multiplier
+problem enacted — tips deliberately not comparable), Ch2 exp(-t/tau) decay
+vs the measured continuous-reload flat line, Ch3 the 2.5-lines-per-qubit
+slope crossing an illustrative cryostat budget band, Ch4 the 68/27/2 wall-
+clock bar, Ch5 photon survival (1-p)^N cliffs, Ch6 the same law as y^N in
+fabrication space with the N=8 frontier marked, Ch7 the foundation-vs-payoff
+quadrant, Ch8 the one-axis ruler with the 432x span and the x109 accounting
+pair. Machinery: new module figures/qcwall.js (type "qc", five generic
+kinds: origins/lines/budget/quadrant/ruler), house engine conventions
+respected — spec carries content, module carries form; shared-compute split
+(poster and lightbox render the same string); tier classes only (font-size
+gate passes); skin's four accents validated as a categorical palette (all
+six checks pass on white). Every number in every spec is the manuscript's
+number, with provenance labels carried in the caption ([CITE]/[REPORTED]/
+[OPEN]/[OPEN-CAVEATED]; model curves labeled as models, measured points as
+measured). Sealed via render-figures INTO the edition source (JS-off floor;
+idempotent re-run verified); scripts loaded via the index edition's new
+head_extra slot. Two layout defects (budget sliver-label collision, ruler
+pair-row/axis collision) caught at the render-and-look pass and fixed in
+the module. AUTHOR: figures are strike-or-tweak-in-place like any draft
+content; each spec is the data-figure JSON on the page.
+
 ## Session 10 agenda — seal review and the next cycle
 The planned arc is complete; what remains is author work and the next
 scouting cycle. AUTHOR ITEMS OPEN: test-reader verdicts for Ch3-Ch8;
