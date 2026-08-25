@@ -127,10 +127,14 @@ preprint and 3.6 in the published version.)
 carries an editorial statement that "the results in this manuscript do not
 represent evidence for the presence of Majorana zero modes in the reported
 devices" [CITE: *Nature* peer-review file for doi 10.1038/s41586-024-08445-2,
-quoted in *Physics World*, 25 February 2025 — the peer-review file is the
-primary document; the quotation is reproduced from technical coverage at
-coverage grade, as this dossier has done elsewhere for paywalled primary
-records].
+quoted in *Physics World*, 25 February 2025, and corroborated independently
+by APS *Physics* (physics.aps.org/articles/v18/68) reporting the same
+editorial note — the peer-review file is the primary document; direct
+retrieval was attempted on 2026-08-25 and refused by the publisher's static
+host, so the quotation is reproduced from technical coverage at coverage
+grade, as this dossier has done elsewhere for paywalled primary records. No
+claim in this chapter rests on this quotation alone: the peer-reviewed
+Matters Arising and Reply below carry the same point].
 
 **The dispute is peer-reviewed, in the same journal, on both sides.** On 24
 June 2026 *Nature* published a Matters Arising and a Reply, back to back:
@@ -488,8 +492,12 @@ Every CITE above was checked on 2026-08-24 against the named primary source
 (arXiv abstract page, Nature-family publication record, or publisher abstract
 page), with two exceptions labeled in place: the *Nature* peer-review file
 quotation, reproduced at coverage grade from technical coverage because the
-file itself is not openly retrievable, and specific device figures reproduced
-from trade coverage, marked REPORTED. Preprints are labeled as preprints
+file itself is not openly retrievable — direct retrieval was attempted on
+2026-08-25 and refused by the publisher's static host, and the wording is
+corroborated by a second independent outlet; no claim in this chapter rests
+on that quotation alone, because the peer-reviewed Matters Arising and Reply
+carry the same point — and specific device figures reproduced from trade
+coverage, marked REPORTED. Preprints are labeled as preprints
 everywhere they appear, including Microsoft's roadmap and lead-tetron results
 and Alice & Bob's code work, because on this platform above all the
 refereed/unrefereed line is the thing under discussion. The scaling

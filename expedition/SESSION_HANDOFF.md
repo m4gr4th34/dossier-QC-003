@@ -42,6 +42,20 @@ stated accounting is OPEN-CAVEATED, not OPEN-UNVERIFIED. AUTHOR ITEMS STILL
 OPEN: Ch3, Ch4, Ch5, Ch6 AND Ch7 test-reader verdicts, strikes if any;
 B5-B10 overrides if the numbers misfit.
 
+## Settled in Session 8 review — do not relitigate
+- provenance.json "updated" is a BUILD stamp written in UTC by
+  render_edition.js, matching auto-timestamp.yml's jq. It reading one day
+  ahead of the chapter's "verified 2026-08-24" dates is correct ordering
+  (verify, then publish), not drift. Do NOT switch the renderer to local
+  time: CI and the local render would then write the same key from
+  different clocks and flip it on every build.
+- CT3 (the Nature peer-review-file quotation) keeps its CITE label. The
+  source is evidentiary; only the retrieval route is coverage-grade. Direct
+  retrieval was attempted 2026-08-25 and refused by the publisher's static
+  host; the wording is corroborated by a second independent outlet; and no
+  Chapter 7 claim rests on CT3 alone, because CT4/CT5 (the peer-reviewed
+  Matters Arising and Reply) carry the same point.
+
 ## Standing obligations
 - B3 scores 2026-12-31; B1/B2/B4 score 2027-12-31; B5/B6 score 2028-06-30;
   B7/B8/B10 score 2028-12-31; B9 scores 2029-06-30.
