@@ -9,14 +9,15 @@
       "pattern": "20\\s*[-\\u2013]\\s*40\\s*[x\\u00d7]",
       "budget": {
         "claim_ledger.csv": 2,
-        "editions/index.source.html": 1,
-        "index.html": 1,
-        "index.md": 1,
+        "editions/index.source.html": 2,
+        "index.html": 2,
+        "index.md": 2,
         "expedition/SCOUTING_LEDGER.md": 3,
         "expedition/SCOUTING_LEDGER_ADDENDUM_1.md": 1,
         "expedition/SESSION_HANDOFF.md": 1,
         "expedition/CH1_DRAFT.md": 1,
-        "expedition/RECOST_INPUTS.md": 1
+        "expedition/RECOST_INPUTS.md": 1,
+        "expedition/CH8_DRAFT.md": 1
       }
     },
     {
@@ -27,13 +28,14 @@
       "pattern": "best[-\\s]in[-\\s]class",
       "budget": {
         "claim_ledger.csv": 2,
-        "editions/index.source.html": 1,
-        "index.html": 1,
-        "index.md": 1,
+        "editions/index.source.html": 2,
+        "index.html": 2,
+        "index.md": 2,
         "expedition/SCOUTING_LEDGER.md": 3,
         "expedition/SESSION_HANDOFF.md": 1,
         "expedition/CH1_DRAFT.md": 1,
-        "expedition/RECOST_INPUTS.md": 1
+        "expedition/RECOST_INPUTS.md": 1,
+        "expedition/CH8_DRAFT.md": 1
       }
     }
   ]

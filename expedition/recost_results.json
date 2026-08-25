@@ -1,0 +1,155 @@
+{
+  "_generated_by": "expedition/recost_harness.py",
+  "_inputs": "expedition/RECOST_INPUTS.md (verified 2026-08-25)",
+  "_model": {
+    "A": 0.1,
+    "form": "LER(d) = A*(p/p_th)^((d+1)/2)",
+    "p_th": 0.01,
+    "status": "OPEN-CAVEATED: results hold under this stated model",
+    "target_LER": 1e-12
+  },
+  "axes": {
+    "classification": {
+      "hqa752": {
+        "axis": "time|space (two baselines)",
+        "baseline": "NA-only (speed); SC-only (space)",
+        "claim": "752x speedup; >10x footprint",
+        "p": null,
+        "task": "end-to-end cost model"
+      },
+      "hrstar55": {
+        "axis": "space",
+        "baseline": "a surface code STAR baseline (comparable speed)",
+        "claim": "~5.5x fewer physical qubits",
+        "p": 0.001,
+        "task": "8x8 TFIM / Fermi-Hubbard simulation"
+      },
+      "qnexus138": {
+        "axis": "space (full machine)",
+        "baseline": "monolithic SC grid, d=15 surface, p=5e-4, 1e3 logical",
+        "claim": "138x fewer physical qubits",
+        "p": 0.0005,
+        "task": "1,000-logical-qubit machine / RSA-2048"
+      },
+      "routing8": {
+        "axis": "space",
+        "baseline": "surface codes at same logical error rate",
+        "claim": "~8x qubit overhead reduction",
+        "p": 0.0001,
+        "task": "circuit-level memory simulation"
+      },
+      "star250": {
+        "axis": "time+space",
+        "baseline": "a fixed-connectivity, fully fault-tolerant scheme",
+        "claim": "~250x time + 2x space",
+        "p": 0.001,
+        "task": "Hamiltonian simulation (megaquop)"
+      },
+      "tdg10": {
+        "axis": "circuit-size",
+        "baseline": "surface code architectures",
+        "claim": "~10x larger circuits at fixed qubits",
+        "p": 0.0007,
+        "task": "end-to-end modular architecture"
+      }
+    },
+    "distinct_axes": [
+      "circuit-size",
+      "space",
+      "space (full machine)",
+      "time+space",
+      "time|space (two baselines)"
+    ],
+    "finding": "The six claims measure at least four distinct quantities across four physical error rates and three task classes. Only the 'space' claims can be ordered against each other at all; orderings across axes are UNDEFINED, not merely uncertain.",
+    "shared_space_axis": [
+      "hrstar55",
+      "routing8"
+    ]
+  },
+  "dials": {
+    "accounting_scope": {
+      "factor": 108.9,
+      "meaning": "physical qubits per logical for the SAME d=15 surface code: full-computation accounting (Q-NEXUS's own baseline, ~49,000) vs memory-only (2d^2 = 450)"
+    },
+    "note": "A pairwise ordering on the shared axis is called RESOLVABLE only when the claimed separation exceeds the p-normalization factor, the largest dial that applies WITHIN one accounting scope. The accounting dial is larger than every audited multiplier except the 250x and dwarfs all inter-architecture separations; comparisons that mix scopes are meaningless.",
+    "p_normalization": {
+      "factor": 3.64,
+      "meaning": "choice of physical error rate (1e-3 vs 1e-4)"
+    },
+    "prefactor_A": {
+      "factor": 1.2,
+      "meaning": "A chosen at 0.3 vs 0.03"
+    },
+    "resolvability_threshold": 3.64,
+    "threshold_constant": {
+      "factor": 2.18,
+      "meaning": "p_th chosen at 0.5% vs 1%"
+    }
+  },
+  "kill_condition": {
+    "detail": "On the one axis where orderings exist, none changes under recosting: the qLDPC-family claims beat the surface code by roughly their stated factors, and the memory landmark beats everything, robustly. The orderings the field might have gotten wrong turn out not to exist at all (cross-axis) rather than to be wrong. Arc E closes as a negative result at full grade, with its incidental findings \u2014 SR-7, SR-8, the accounting-scope factor, the resolvability threshold \u2014 standing on their own.",
+    "preregistered": "if no headline multiplier's ordering changes by more than its own stated uncertainty under the common baseline, arc E is reported as a negative result and closed",
+    "verdict": "FIRES"
+  },
+  "memory_vs_compute": {
+    "compute_inclusive_span": "8-12x",
+    "meaning": "The storage half of the problem offers verified-simulation wins of two orders of magnitude; every end-to-end (compute-inclusive) multiplier on the shared axis compresses to about one order. The memory-to-compute gap is not a slogan; at the current published record it is the difference between ~430x and ~10x.",
+    "memory_axis_span": 432.0
+  },
+  "pairwise_verdicts": {
+    "cross_axis_claims(250x,752x,138x,5.5x)": {
+      "verdict": "UNDEFINED \u2014 different quantities against different baselines; no recosting orders them without assumptions whose defensible ranges exceed the separations"
+    },
+    "qldpc_memory_vs_everything": {
+      "separation": 432.0,
+      "threshold": 3.64,
+      "verdict": "RESOLVABLE, robustly \u2014 two orders of magnitude of margin"
+    },
+    "surface_vs_routing(8x)": {
+      "separation": 8.0,
+      "threshold": 3.64,
+      "verdict": "RESOLVABLE on the qubit-overhead axis \u2014 but with a margin of only ~2.2x over the normalization sensitivity"
+    },
+    "surface_vs_tour_de_gross(10x)": {
+      "separation": 10.0,
+      "threshold": 3.64,
+      "verdict": "RESOLVABLE on the paper's own circuit-size axis (the direction survives the dials); NOT transferable to the qubit-overhead axis without a cost-linearity assumption the paper does not state"
+    },
+    "tour_de_gross_vs_routing": {
+      "separation": 1.25,
+      "threshold": 3.64,
+      "verdict": "NOT RESOLVABLE \u2014 the claims live on different axes (circuit-size vs qubit-overhead); under the unstated linearity bridge their separation is ~1.25x, far inside the ~3.6x normalization sensitivity. These two cannot be ordered from the published record"
+    }
+  },
+  "ruler": {
+    "note": "The identical surface code, held to the identical logical error target, costs this much more per logical qubit at the loosest operating point in use than at the tightest. Any cross-paper comparison spanning these p's inherits this factor before any architecture difference is measured.",
+    "p_normalization_spread": 3.64,
+    "surface_memory_overhead_at_target": {
+      "p=0.0001": {
+        "d_required": 11,
+        "phys_per_logical_2d2": 242
+      },
+      "p=0.0005": {
+        "d_required": 17,
+        "phys_per_logical_2d2": 578
+      },
+      "p=0.0007": {
+        "d_required": 19,
+        "phys_per_logical_2d2": 722
+      },
+      "p=0.001": {
+        "d_required": 21,
+        "phys_per_logical_2d2": 882
+      }
+    }
+  },
+  "space_axis_at_p1e-3_memory_scope": {
+    "excluded": {
+      "tour_de_gross": "own figure 288/12 = 24 phys per logical is at d=12, not at the 1e-12 target; not placeable here from the published abstract"
+    },
+    "memory_axis_total_span": 432.0,
+    "qldpc_rate_half_memory": 2.04,
+    "routing_codes_via_8x": 110.2,
+    "surface_code": 882
+  }
+}
