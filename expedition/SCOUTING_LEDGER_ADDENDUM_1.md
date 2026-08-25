@@ -37,7 +37,9 @@ Three layers, each mapping to a surviving Cycle-1 component:
    books cannot carry per-claim honest labels, dated falsifiable bets, or updates;
    this format can.
 2. **The race, recosted** (absorbs arc E). Each platform's flagship quantitative
-   claim (250x, 752x, 138x, 20-40x, 10x, 8x — see ledger arc E table) re-expressed
+   claim (250x, 752x, 138x, ~5.5x, an order of magnitude, 8x — see ledger arc E
+   table; the fourth was corrected from "20-40x" on 2026-08-25 under erratum SR-7)
+   re-expressed
    on one common ruler. Exhibit 0 and the SR errata stand as the arc's founding
    demonstration.
 3. **Dated public bets** (absorbs arc D). Registered forecasts on platform

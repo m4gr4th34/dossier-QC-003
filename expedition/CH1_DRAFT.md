@@ -102,14 +102,18 @@ baseline the authors chose themselves. Within roughly thirteen months, all
 CITE-verified at the grades stated in the committed scouting ledger
 (expedition/SCOUTING_LEDGER.md, 2026-07-17):
 
+Three rows below were corrected on 2026-08-25 under errata SR-7; see
+`expedition/SCOUTING_LEDGER.md` and `expedition/RECOST_INPUTS.md` for the
+verified figures and how they were established.
+
 | Claim | Against what baseline (the paper's words) | Source |
 |---|---|---|
 | ~250x time savings, 2x space | "a fixed-connectivity, fully fault-tolerant scheme" | transversal STAR, arXiv:2509.18294, PRX Quantum 7, 020343 (2026) — full text verified |
 | 752x speedup; >10x fewer qubits | "NA-only baselines"; "SC-only systems" — two baselines in one abstract | arXiv:2601.10144 |
 | 138x fewer physical qubits | "under detailed accounting" | arXiv:2604.06319 |
-| 20–40x space-time cost | "the previous best-in-class STAR architecture" | arXiv:2606.25011 |
-| ~10x qubit efficiency | "equivalent surface-code architectures" | Tour de Gross, arXiv:2506.03094 |
-| ~8x overhead | surface code "at equal logical error" | routing codes, arXiv:2606.25330 |
+| ~5.5x fewer physical qubits | "a surface code STAR baseline" at comparable speed | high-rate STAR, arXiv:2606.25011v1 — full text + rendered PDF **(corrected 2026-08-25; previously read "20–40x space-time cost" against "the previous best-in-class STAR architecture", a figure and a baseline the paper does not contain — erratum SR-7)** |
+| an order of magnitude larger logical circuits at a given physical qubit count | "surface code architectures" | Tour de Gross, arXiv:2506.03094 **(corrected 2026-08-25; the previous row inverted the quantity and quoted a word the paper does not use)** |
+| ~8x physical-qubit overhead | "compared to surface codes achieving a same logical error rate" | routing codes, arXiv:2606.25330 **(corrected 2026-08-25; the previous row placed a paraphrase inside quotation marks)** |
 
 Every multiplier is honest by its own lights. **No two share a baseline, a cost
 model, a noise model, or a decoder — so no two can be compared, and no paper
